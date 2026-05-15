@@ -1,9 +1,9 @@
 [build]
-builder = "nixpacks"
-buildCommand = "npx prisma generate && npm run build"
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "node .next/standalone/server.js"
+startCommand = "node server.js"
 healthcheckPath = "/"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
