@@ -27,6 +27,7 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://grandvenicenigeria.com"),
   title: {
     default: "GrandVenice Hotel & Suites | Port Harcourt, Nigeria",
     template: "%s | GrandVenice Hotel",
