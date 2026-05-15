@@ -22,12 +22,14 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>
 }): Promise<Metadata> {
-  const { slug } = await params
-  const room = await client.fetch(ROOM_BY_SLUG_QUERY, { slug })
-  if (!room) return { title: "Room Not Found" }
-  return {
-    title: room.name,
-    description: room.shortDescription,
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) return { title: "Room Details" }
+  try {
+    const { slug } = await params
+    const room = await client.fetch(ROOM_BY_SLUG_QUERY, { slug })
+    if (!room) return { title: "Room Not Found" }
+    return { title: room.name, description: room.shortDescription }
+  } catch {
+    return { title: "Room Details" }
   }
 }
 
@@ -37,7 +39,13 @@ export default async function RoomPage({
   params: Promise<{ slug: string }>
 }) {
   const { slug } = await params
-  const room: Room | null = await client.fetch(ROOM_BY_SLUG_QUERY, { slug }, { next: { revalidate: 3600 } })
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) notFound()
+  let room: Room | null = null
+  try {
+    room = await client.fetch(ROOM_BY_SLUG_QUERY, { slug }, { next: { revalidate: 3600 } })
+  } catch {
+    notFound()
+  }
   if (!room) notFound()
   return <RoomDetail room={room} />
 }

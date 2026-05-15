@@ -16,7 +16,14 @@ export default async function BookingPage({
   searchParams: Promise<{ roomId?: string; room?: string; price?: string }>
 }) {
   const sp = await searchParams
-  const rooms: Room[] = await client.fetch(ROOMS_QUERY, {}, { next: { revalidate: 3600 } })
+  let rooms: Room[] = []
+  if (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+    try {
+      rooms = await client.fetch(ROOMS_QUERY, {}, { next: { revalidate: 3600 } })
+    } catch {
+      rooms = []
+    }
+  }
 
   return (
     <div className="bg-ivory min-h-screen pt-24 pb-16">
