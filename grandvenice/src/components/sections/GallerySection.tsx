@@ -21,62 +21,67 @@ interface GallerySectionProps {
   items?: GalleryItemInternal[];
 }
 
+const CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL";
 const FALLBACK_GALLERY: GalleryItemInternal[] = [
   {
     _id: "g1",
     altText: "Hotel Exterior",
     category: "exterior",
-    image: {
-      asset: {
-        url: "https://a.otcdn.com/imglib/hotelphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141140339900.webp",
-      },
-    },
+    image: { asset: { url: `${CDN}/hf_20260515_183150_fad5fa4f-0e41-487c-97e3-73249ba0437d_min.webp` } },
   },
   {
     _id: "g2",
-    altText: "Standard Room",
+    altText: "Standard City View Room",
     category: "rooms",
-    image: { asset: { url: "/images/rooms/standard-city.jpg" } },
+    image: { asset: { url: `${CDN}/hf_20260515_183153_03be0af1-bf9a-4e3d-84d7-adeb7c0ca4a2_min.webp` } },
   },
   {
     _id: "g3",
     altText: "Executive Suite",
     category: "rooms",
-    image: { asset: { url: "/images/rooms/executive-single.jpg" } },
+    image: { asset: { url: `${CDN}/hf_20260515_183155_b1ef819d-6631-4609-b602-0e651861248c_min.webp` } },
   },
   {
     _id: "g4",
-    altText: "Outdoor Pool",
-    category: "pool",
-    image: {
-      asset: {
-        url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/02/img2-2a.jpg",
-      },
-    },
+    altText: "Suite with Balcony",
+    category: "rooms",
+    image: { asset: { url: `${CDN}/hf_20260515_183158_52e5d149-ca25-41c5-80ff-a3be34883e0b_min.webp` } },
   },
   {
     _id: "g5",
-    altText: "Restaurant",
-    category: "dining",
-    image: { asset: { url: "/images/amenities/restaurant.jpg" } },
+    altText: "Grand Hotel Lobby",
+    category: "lobby",
+    image: { asset: { url: `${CDN}/hf_20260515_183201_fd8aea5b-963b-475a-9c71-5518196ca557_min.webp` } },
   },
   {
     _id: "g6",
-    altText: "Hotel Lobby",
-    category: "lobby",
-    image: { asset: { url: "/images/amenities/lobby.jpg" } },
+    altText: "Infinity Pool at Sunset",
+    category: "pool",
+    image: { asset: { url: `${CDN}/hf_20260515_183203_01d4a5db-bac8-4377-8af4-16e9d30e2a67_min.webp` } },
   },
   {
     _id: "g7",
-    altText: "Suite with Balcony",
-    category: "rooms",
-    image: { asset: { url: "/images/rooms/double-suite-balcony.jpg" } },
+    altText: "Fine Dining Restaurant",
+    category: "dining",
+    image: { asset: { url: `${CDN}/hf_20260515_183206_d54b993d-a407-4cc0-91fb-03d442b08c22_min.webp` } },
   },
   {
     _id: "g8",
     altText: "Fitness Centre",
     category: "amenities",
-    image: { asset: { url: "/images/amenities/gym.jpg" } },
+    image: { asset: { url: `${CDN}/hf_20260515_183209_844e4ec4-1661-4a0a-872f-9d5a487e479e_min.webp` } },
+  },
+  {
+    _id: "g9",
+    altText: "Hotel Exterior - Real",
+    category: "exterior",
+    image: { asset: { url: "https://a.otcdn.com/imglib/hotelphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141140339900.webp" } },
+  },
+  {
+    _id: "g10",
+    altText: "Outdoor Pool",
+    category: "pool",
+    image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/02/img2-2a.jpg" } },
   },
 ];
 
