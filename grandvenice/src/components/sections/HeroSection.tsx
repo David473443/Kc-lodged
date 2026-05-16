@@ -39,7 +39,7 @@ export function HeroSection({ hotelInfo }: HeroSectionProps) {
     return () => ctx.revert();
   }, []);
 
-  const videoSrc = hotelInfo?.heroVideoUrl || "https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260515_183221_e7f46606-fe75-47bd-8768-be5bad241e25.mp4";
+  const videoSrc = hotelInfo?.heroVideoUrl || "https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260516_214021_cc7a07f1-31ef-4ff6-8bb4-76dbd76236f8.mp4";
 
   return (
     <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden perspective-[1200px]">
@@ -49,7 +49,7 @@ export function HeroSection({ hotelInfo }: HeroSectionProps) {
         ref={videoRef}
         autoPlay muted loop playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
-        poster="https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260515_183150_fad5fa4f-0e41-487c-97e3-73249ba0437d_min.webp"
+        poster="https://a.otcdn.com/imglib/hotelphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141140339900.webp"
       >
         <source src={videoSrc} type="video/mp4" />
         {/* fallback poster fills the frame when no video */}

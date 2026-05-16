@@ -20,26 +20,29 @@ const amenities = [
   { Icon: Briefcase,  label: "Business Centre",     desc: "Conference facilities" },
 ];
 
-const CDN = "https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL";
 const showcase = [
   {
     label: "Infinity Pool",
     sublabel: "Outdoor oasis",
-    image: `${CDN}/hf_20260515_183203_01d4a5db-bac8-4377-8af4-16e9d30e2a67_min.webp`,
+    // Kling 3.0 image-to-video from real pool photo
+    video: "https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260516_214029_702ef25c-cd7d-447a-bb2c-9272c2f6a934.mp4",
+    image: null,
     fallback: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/02/img2-2a.jpg",
     tall: true,
   },
   {
     label: "Fine Dining",
     sublabel: "International cuisine",
-    image: `${CDN}/hf_20260515_183206_d54b993d-a407-4cc0-91fb-03d442b08c22_min.webp`,
+    video: null,
+    image: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2013/05/img1a.jpg",
     fallback: null,
     tall: false,
   },
   {
-    label: "Fitness Centre",
-    sublabel: "State-of-the-art gym",
-    image: `${CDN}/hf_20260515_183209_844e4ec4-1661-4a0a-872f-9d5a487e479e_min.webp`,
+    label: "Conference & Events",
+    sublabel: "Business facilities",
+    video: null,
+    image: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/333f22c8_z.jpg",
     fallback: null,
     tall: false,
   },
@@ -76,21 +79,34 @@ export function AmenitiesSection() {
       {/* ── Gold separator ── */}
       <div className="h-px mx-20 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
-      {/* ── Full-bleed image showcase ── */}
+      {/* ── Full-bleed image/video showcase ── */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
-        {showcase.map(({ label, sublabel, image, fallback, tall }, i) => (
+        {showcase.map(({ label, sublabel, video, image, fallback, tall }, i) => (
           <FadeInView key={label} delay={i * 0.15}>
             <div className={`relative overflow-hidden group ${tall ? "lg:row-span-2" : ""} ${i === 0 ? "h-[460px] lg:h-full" : "h-[300px]"}`}>
-              <Image
-                src={image}
-                alt={label}
-                fill
-                className="object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-108"
-                sizes="(max-width: 768px) 100vw, 33vw"
-                onError={(e) => {
-                  if (fallback) (e.target as HTMLImageElement).src = fallback;
-                }}
-              />
+              {video ? (
+                <video
+                  autoPlay muted loop playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-108"
+                  poster={fallback || undefined}
+                >
+                  <source src={video} type="video/mp4" />
+                  {fallback && (
+                    <Image src={fallback} alt={label} fill className="object-cover" sizes="33vw" />
+                  )}
+                </video>
+              ) : (
+                <Image
+                  src={image!}
+                  alt={label}
+                  fill
+                  className="object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-108"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  onError={(e) => {
+                    if (fallback) (e.target as HTMLImageElement).src = fallback;
+                  }}
+                />
+              )}
               {/* Dark gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               {/* Hover overlay */}

@@ -16,8 +16,8 @@ export function BookingSection() {
       {/* ── Background image ── */}
       <div className="absolute inset-0">
         <Image
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260515_183201_fd8aea5b-963b-475a-9c71-5518196ca557_min.webp"
-          alt="GrandVenice Hotel Lobby"
+          src="https://a.otcdn.com/imglib/hotelphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141508390000.webp"
+          alt="GrandVenice Hotel Exterior"
           fill
           className="object-cover"
           sizes="100vw"
