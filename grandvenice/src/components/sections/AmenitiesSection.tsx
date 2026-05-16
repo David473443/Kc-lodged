@@ -25,7 +25,7 @@ const showcase = [
   {
     label: "Infinity Pool",
     sublabel: "Outdoor oasis",
-    image: `${CDN}/hf_20260515_183203_01d4a5db-bac8-4377-8af4-16e9d30e2a67_min.webp`,
+    image: `https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260516_185520_82cbe7fa-ff87-44e3-945a-7ce874de6819_min.webp`,
     fallback: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/02/img2-2a.jpg",
     tall: true,
   },

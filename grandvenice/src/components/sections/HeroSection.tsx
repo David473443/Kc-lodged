@@ -39,7 +39,7 @@ export function HeroSection({ hotelInfo }: HeroSectionProps) {
     return () => ctx.revert();
   }, []);
 
-  const videoSrc = hotelInfo?.heroVideoUrl || "https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260515_183221_e7f46606-fe75-47bd-8768-be5bad241e25.mp4";
+  const videoSrc = hotelInfo?.heroVideoUrl || "https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260516_185510_41fb108e-7713-46df-b52f-d50ca1ececda.mp4";
 
   return (
     <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden perspective-[1200px]">

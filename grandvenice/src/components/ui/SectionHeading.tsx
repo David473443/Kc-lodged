@@ -33,7 +33,7 @@ export function SectionHeading({
           <p
             className={cn(
               "font-script text-2xl md:text-3xl",
-              isLight ? "text-gold" : "text-emerald"
+              isLight ? "text-gold" : "text-gold"
             )}
           >
             {script}
@@ -44,7 +44,7 @@ export function SectionHeading({
         <h2
           className={cn(
             "font-serif font-light text-3xl md:text-5xl leading-tight tracking-wide",
-            isLight ? "text-white" : "text-emerald-dark"
+            isLight ? "text-white" : "text-white"
           )}
         >
           {title}
@@ -55,7 +55,7 @@ export function SectionHeading({
           <p
             className={cn(
               "text-sm md:text-base leading-relaxed max-w-2xl",
-              isLight ? "text-white/70" : "text-gray-500"
+              isLight ? "text-white/60" : "text-white/50 font-sans font-light"
             )}
           >
             {subtitle}
