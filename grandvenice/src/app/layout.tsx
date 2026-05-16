@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter, Great_Vibes } from "next/font/google";
+import { Cormorant_Garamond, Raleway, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { Navbar } from "@/components/layout/Navbar";
@@ -13,9 +13,10 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -78,9 +79,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${inter.variable} ${greatVibes.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${raleway.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-ivory text-[#1A1A1A] flex flex-col">
+      <body className="min-h-full bg-obsidian text-charcoal flex flex-col">
         <SmoothScrollProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
