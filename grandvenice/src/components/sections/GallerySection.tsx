@@ -21,30 +21,77 @@ interface GallerySectionProps {
 }
 
 const REAL_HOTEL_GALLERY: GalleryItemInternal[] = [
+  // ── Exterior ─────────────────────────────────────────────────────────────
   {
     _id: "r1",
-    altText: "GrandVenice Hotel Exterior — Main Entrance",
+    altText: "GrandVenice Hotel — Main Entrance",
     category: "exterior",
     image: { asset: { url: "https://a.otcdn.com/imglib/hotelphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141140339900.webp" } },
   },
   {
     _id: "r2",
-    altText: "GrandVenice Hotel Exterior — Façade View",
+    altText: "GrandVenice Hotel — Façade",
     category: "exterior",
     image: { asset: { url: "https://a.otcdn.com/imglib/hotelphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141508390000.webp" } },
   },
   {
     _id: "r3",
-    altText: "Hotel Lobby — Grand Reception",
-    category: "lobby",
+    altText: "Hotel Entrance — Fountain Courtyard",
+    category: "exterior",
     image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/07/img1-2-1a.jpg" } },
   },
   {
-    _id: "r4",
-    altText: "Hotel Interior — Lounge Area",
-    category: "lobby",
-    image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/07/img2-2-1a.jpg" } },
+    _id: "r13",
+    altText: "Hotel Grounds",
+    category: "exterior",
+    image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/02/img1-2a.jpg" } },
   },
+  {
+    _id: "r16",
+    altText: "Hotel Garden",
+    category: "exterior",
+    image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2013/05/img2a.jpg" } },
+  },
+
+  // ── Rooms (confirmed a.otcdn.com/imglib/roomphotos/) ─────────────────────
+  {
+    _id: "r8",
+    altText: "Suite Bedroom",
+    category: "rooms",
+    image: { asset: { url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/d9/a4/3d/bedroom.jpg?w=900&h=500&s=1" } },
+  },
+  {
+    _id: "r17",
+    altText: "Executive Apartment — Bedroom",
+    category: "rooms",
+    image: { asset: { url: "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141601327900.jpg" } },
+  },
+  {
+    _id: "r18",
+    altText: "Executive Apartment — Living Area",
+    category: "rooms",
+    image: { asset: { url: "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141602600800.jpg" } },
+  },
+  {
+    _id: "r19",
+    altText: "Deluxe Room",
+    category: "rooms",
+    image: { asset: { url: "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141604636900.jpg" } },
+  },
+  {
+    _id: "r20",
+    altText: "Standard Room",
+    category: "rooms",
+    image: { asset: { url: "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141606206900.jpg" } },
+  },
+  {
+    _id: "r21",
+    altText: "Guest Room",
+    category: "rooms",
+    image: { asset: { url: "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141607205300.jpg" } },
+  },
+
+  // ── Pool ─────────────────────────────────────────────────────────────────
   {
     _id: "r5",
     altText: "Swimming Pool",
@@ -57,65 +104,59 @@ const REAL_HOTEL_GALLERY: GalleryItemInternal[] = [
     category: "pool",
     image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/02/img4-2a.jpg" } },
   },
-  {
-    _id: "r7",
-    altText: "Deluxe Room",
-    category: "rooms",
-    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/b043c48d_z.jpg" } },
-  },
-  {
-    _id: "r8",
-    altText: "Suite Bedroom",
-    category: "rooms",
-    image: { asset: { url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/d9/a4/3d/bedroom.jpg?w=900&h=500&s=1" } },
-  },
-  {
-    _id: "r9",
-    altText: "Executive Room",
-    category: "rooms",
-    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/a13270cc_z.jpg" } },
-  },
-  {
-    _id: "r10",
-    altText: "Standard Room",
-    category: "rooms",
-    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/9a03d1d1_z.jpg" } },
-  },
+
+  // ── Dining ───────────────────────────────────────────────────────────────
   {
     _id: "r11",
     altText: "Restaurant — Fine Dining",
     category: "dining",
     image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2013/05/img1a.jpg" } },
   },
+
+  // ── Lobby (confirmed travelapi reception + grandvenice lounge) ────────────
+  {
+    _id: "r4",
+    altText: "Hotel Interior — Lounge Area",
+    category: "lobby",
+    image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/07/img2-2-1a.jpg" } },
+  },
+  {
+    _id: "r7",
+    altText: "Hotel Lobby",
+    category: "lobby",
+    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/b043c48d_z.jpg" } },
+  },
+  {
+    _id: "r9",
+    altText: "Hotel Reception — Interior Entrance",
+    category: "lobby",
+    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/a13270cc_z.jpg" } },
+  },
+  {
+    _id: "r10",
+    altText: "Hotel Reception",
+    category: "lobby",
+    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/9a03d1d1_z.jpg" } },
+  },
+  {
+    _id: "r14",
+    altText: "Hotel Lobby Area",
+    category: "lobby",
+    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/a45b58d4_z.jpg" } },
+  },
+  {
+    _id: "r15",
+    altText: "Hotel Lobby — Reception Desk",
+    category: "lobby",
+    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/333f22c8_z.jpg" } },
+  },
+
+  // ── Amenities ────────────────────────────────────────────────────────────
   {
     _id: "r12",
     altText: "Hotel Amenities",
     category: "amenities",
     image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/02/img1-1-1a.jpg" } },
-  },
-  {
-    _id: "r13",
-    altText: "Hotel Grounds",
-    category: "exterior",
-    image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/02/img1-2a.jpg" } },
-  },
-  {
-    _id: "r14",
-    altText: "Hotel View",
-    category: "exterior",
-    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/a45b58d4_z.jpg" } },
-  },
-  {
-    _id: "r15",
-    altText: "Conference & Events",
-    category: "amenities",
-    image: { asset: { url: "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/333f22c8_z.jpg" } },
-  },
-  {
-    _id: "r16",
-    altText: "Hotel Garden",
-    category: "exterior",
-    image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2013/05/img2a.jpg" } },
   },
 ];
 

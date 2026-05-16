@@ -18,18 +18,18 @@ const badgeMap: Record<string, { label: string; class: string }> = {
 };
 
 const localImages: Record<string, string> = {
-  "standard-city":        "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/9a03d1d1_z.jpg",
-  "standard-twin":        "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/b043c48d_z.jpg",
+  "standard-city":        "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141606206900.jpg",
+  "standard-twin":        "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141607205300.jpg",
   "executive-single":     "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/d9/a4/3d/bedroom.jpg?w=900&h=500&s=1",
-  "double-suite-balcony": "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/a13270cc_z.jpg",
-  "double-suite":         "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/a45b58d4_z.jpg",
+  "double-suite-balcony": "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141601327900.jpg",
+  "double-suite":         "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141602600800.jpg",
 };
 
 export function RoomCard({ room }: RoomCardProps) {
   const badge    = badgeMap[room.type] || { label: room.type, class: "bg-obsidian/80 text-gold border border-gold/30" };
   const imageUrl = room.images?.[0]?.asset?.url
     || localImages[room.type]
-    || "https://i.travelapi.com/lodging/13000000/12030000/12025800/12025790/9a03d1d1_z.jpg";
+    || "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141604636900.jpg";
 
   return (
     <div className="luxury-card glass-card group relative flex flex-col overflow-hidden">
