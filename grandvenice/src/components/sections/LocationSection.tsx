@@ -45,7 +45,7 @@ export function LocationSection() {
               <div className="flex items-start gap-4">
                 <MapPin size={20} className="text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <p className="font-serif text-emerald-dark text-lg font-light mb-1">
+                  <p className="font-serif text-white text-lg font-light mb-1">
                     Address
                   </p>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -64,7 +64,7 @@ export function LocationSection() {
               <div className="flex items-start gap-4">
                 <Phone size={20} className="text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <p className="font-serif text-emerald-dark text-lg font-light mb-1">
+                  <p className="font-serif text-white text-lg font-light mb-1">
                     Phone
                   </p>
                   <a
@@ -80,7 +80,7 @@ export function LocationSection() {
               <div className="flex items-start gap-4">
                 <Mail size={20} className="text-gold flex-shrink-0 mt-1" />
                 <div>
-                  <p className="font-serif text-emerald-dark text-lg font-light mb-1">
+                  <p className="font-serif text-white text-lg font-light mb-1">
                     Email
                   </p>
                   <a
@@ -96,7 +96,7 @@ export function LocationSection() {
 
               {/* Nearby landmarks */}
               <div>
-                <p className="font-serif text-emerald-dark text-lg font-light mb-4">
+                <p className="font-serif text-white text-lg font-light mb-4">
                   Nearby Landmarks
                 </p>
                 <ul className="space-y-3">

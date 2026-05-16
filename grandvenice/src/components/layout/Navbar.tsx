@@ -44,7 +44,7 @@ export function Navbar() {
           <Link href="/" className="flex flex-col leading-none group">
             <span className={cn(
               "font-serif text-[22px] tracking-[0.18em] uppercase transition-colors duration-500",
-              scrolled ? "text-emerald-dark" : "text-white"
+              scrolled ? "text-black" : "text-white"
             )}>
               GrandVenice
             </span>
@@ -95,7 +95,7 @@ export function Navbar() {
           <button
             className={cn(
               "md:hidden p-2 transition-colors duration-300",
-              scrolled ? "text-emerald-dark" : "text-white"
+              scrolled ? "text-black" : "text-white"
             )}
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
@@ -120,7 +120,7 @@ export function Navbar() {
 
         {/* Drawer panel */}
         <div className={cn(
-          "absolute top-0 right-0 h-full w-[320px] bg-emerald-dark flex flex-col",
+          "absolute top-0 right-0 h-full w-[320px] bg-[#080808] flex flex-col",
           "transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           mobileOpen ? "translate-x-0" : "translate-x-full"
         )}>

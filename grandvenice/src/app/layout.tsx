@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Raleway, Great_Vibes } from "next/font/google";
+import { Playfair_Display, DM_Sans, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   style: ["normal", "italic"],
   display: "swap",
 });
 
-const raleway = Raleway({
-  variable: "--font-raleway",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   display: "swap",
@@ -79,7 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${raleway.variable} ${greatVibes.variable} h-full antialiased`}
+      className={`${playfair.variable} ${dmSans.variable} ${greatVibes.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-obsidian text-charcoal flex flex-col">
         <SmoothScrollProvider>

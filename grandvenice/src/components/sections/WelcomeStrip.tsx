@@ -1,11 +1,14 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { FadeInView } from "@/components/animations/FadeInView";
 
 const stats = [
-  { value: 41,  suffix: "",    label: "Rooms & Suites",     desc: "Curated accommodations" },
-  { value: 10,  suffix: "+",   label: "Years of Excellence", desc: "A decade of luxury" },
-  { value: 4,   suffix: ".8★", label: "Guest Rating",        desc: "Consistently outstanding" },
-  { value: 24,  suffix: "/7",  label: "Concierge",           desc: "Always at your service" },
+  { value: 41,  suffix: "",    label: "Rooms & Suites",      sub: "Curated accommodations" },
+  { value: 10,  suffix: "+",   label: "Years of Excellence", sub: "A decade of luxury" },
+  { value: 4,   suffix: ".8★", label: "Guest Rating",        sub: "Consistently outstanding" },
+  { value: 24,  suffix: "/7",  label: "Concierge",           sub: "Always at your service" },
 ];
 
 const marqueeItems = [
@@ -17,6 +20,63 @@ const marqueeItems = [
   "Nigerian Excellence",
 ];
 
+function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+
+  return (
+    <div
+      ref={ref}
+      className="relative flex flex-col items-center py-14 px-6 text-center group overflow-hidden"
+    >
+      {/* Gold top bar — draws in on scroll */}
+      <motion.div
+        className="absolute top-0 left-0 right-0 h-px bg-gold/50"
+        style={{ transformOrigin: "left" }}
+        initial={{ scaleX: 0 }}
+        animate={inView ? { scaleX: 1 } : {}}
+        transition={{ duration: 1.1, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      />
+
+      {/* Number — slides up from below (curtain reveal) */}
+      <div className="overflow-hidden mb-1">
+        <motion.div
+          initial={{ y: "110%" }}
+          animate={inView ? { y: 0 } : {}}
+          transition={{ duration: 0.85, delay: index * 0.1 + 0.15, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <span className="font-serif text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] font-light text-white leading-none tracking-tight">
+            <AnimatedCounter target={stat.value} suffix={stat.suffix} duration={1800} />
+          </span>
+        </motion.div>
+      </div>
+
+      {/* Gold thin separator */}
+      <motion.div
+        className="h-px w-10 bg-gold mb-4"
+        initial={{ opacity: 0, scaleX: 0 }}
+        animate={inView ? { opacity: 1, scaleX: 1 } : {}}
+        transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
+      />
+
+      {/* Label */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, delay: index * 0.1 + 0.55, ease: "easeOut" }}
+      >
+        <p className="text-gold text-[9px] tracking-[0.35em] uppercase font-sans font-medium mb-1.5">
+          {stat.label}
+        </p>
+        <p className="text-white/25 text-[9px] tracking-[0.2em] font-sans">{stat.sub}</p>
+      </motion.div>
+
+      {/* Hover gold glow */}
+      <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/[0.03] transition-colors duration-700" />
+    </div>
+  );
+}
+
 export function WelcomeStrip() {
   return (
     <div>
@@ -26,47 +86,22 @@ export function WelcomeStrip() {
           <div className="marquee-inner flex-shrink-0">
             {[...marqueeItems, ...marqueeItems].map((item, i) => (
               <span key={i} className="flex items-center gap-5 mr-5">
-                <span className="text-emerald-dark text-[10px] tracking-[0.3em] uppercase font-medium whitespace-nowrap">
+                <span className="text-black text-[10px] tracking-[0.3em] uppercase font-sans font-semibold whitespace-nowrap">
                   {item}
                 </span>
-                <span className="text-emerald-dark/40 text-[8px]">◆</span>
+                <span className="text-black/35 text-[8px]">◆</span>
               </span>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ── Stats strip ── */}
-      <section className="bg-emerald-gradient py-16 md:py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-0 relative">
-            {/* Vertical dividers */}
-            <div className="absolute inset-y-0 left-1/2 hidden lg:block w-px bg-white/10" />
-
+      {/* ── Stats — pure black cinematic ── */}
+      <section className="bg-[#080808]">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/[0.06] divide-y lg:divide-y-0">
             {stats.map((stat, i) => (
-              <FadeInView key={stat.label} delay={i * 0.12} direction="up">
-                <div className={`
-                  flex flex-col items-center text-center py-8 px-6
-                  ${i < stats.length - 1 ? "lg:border-r lg:border-white/10" : ""}
-                  ${i < 2 ? "border-b lg:border-b-0 border-white/10" : ""}
-                `}>
-                  {/* Number */}
-                  <div className="font-serif text-5xl md:text-6xl text-white font-extralight leading-none mb-1">
-                    <AnimatedCounter target={stat.value} suffix={stat.suffix} duration={2500} />
-                  </div>
-
-                  {/* Gold micro-line */}
-                  <div className="h-px w-8 bg-gold my-3" />
-
-                  {/* Label */}
-                  <p className="text-gold text-[10px] tracking-[0.25em] uppercase font-medium mb-1">
-                    {stat.label}
-                  </p>
-                  <p className="text-white/30 text-[10px] tracking-wider">
-                    {stat.desc}
-                  </p>
-                </div>
-              </FadeInView>
+              <StatCard key={stat.label} stat={stat} index={i} />
             ))}
           </div>
         </div>

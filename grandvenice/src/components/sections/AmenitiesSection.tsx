@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import {
   Utensils, Waves, Dumbbell, Wifi,
   Car, Coffee, Shield, Briefcase, Sparkles
@@ -9,22 +11,21 @@ import { FadeInView } from "@/components/animations/FadeInView";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const amenities = [
-  { Icon: Utensils,   label: "Restaurant & Bar",   desc: "International cuisine" },
-  { Icon: Waves,      label: "Swimming Pool",       desc: "Outdoor infinity pool" },
-  { Icon: Dumbbell,   label: "Fitness Centre",      desc: "Modern equipment" },
-  { Icon: Sparkles,   label: "Spa & Wellness",      desc: "Rejuvenating treatments" },
-  { Icon: Wifi,       label: "High-Speed Wi-Fi",    desc: "Complimentary internet" },
-  { Icon: Car,        label: "Free Parking",        desc: "Secure parking lot" },
-  { Icon: Coffee,     label: "24/7 Room Service",   desc: "In-room dining anytime" },
-  { Icon: Shield,     label: "Round-Clock Security",desc: "Safety guaranteed" },
-  { Icon: Briefcase,  label: "Business Centre",     desc: "Conference facilities" },
+  { Icon: Utensils,   label: "Restaurant & Bar",    desc: "International cuisine" },
+  { Icon: Waves,      label: "Swimming Pool",        desc: "Outdoor infinity pool" },
+  { Icon: Dumbbell,   label: "Fitness Centre",       desc: "Modern equipment" },
+  { Icon: Sparkles,   label: "Spa & Wellness",       desc: "Rejuvenating treatments" },
+  { Icon: Wifi,       label: "High-Speed Wi-Fi",     desc: "Complimentary internet" },
+  { Icon: Car,        label: "Free Parking",         desc: "Secure parking lot" },
+  { Icon: Coffee,     label: "24/7 Room Service",    desc: "In-room dining anytime" },
+  { Icon: Shield,     label: "Round-Clock Security", desc: "Safety guaranteed" },
+  { Icon: Briefcase,  label: "Business Centre",      desc: "Conference facilities" },
 ];
 
 const showcase = [
   {
     label: "Infinity Pool",
     sublabel: "Outdoor oasis",
-    // Kling 3.0 image-to-video from real pool photo
     video: "https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260516_214029_702ef25c-cd7d-447a-bb2c-9272c2f6a934.mp4",
     image: null,
     fallback: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2016/02/img2-2a.jpg",
@@ -48,36 +49,77 @@ const showcase = [
   },
 ];
 
+function AmenityRow({ Icon, label, desc, index }: { Icon: React.ElementType; label: string; desc: string; index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+
+  return (
+    <motion.div
+      ref={ref}
+      className="flex items-center gap-5 px-6 py-5 group cursor-default relative"
+      initial={{ opacity: 0, x: -16 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.65, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {/* Animated gold left bar */}
+      <motion.div
+        className="w-px flex-shrink-0 bg-gold/40 group-hover:bg-gold transition-colors duration-500"
+        style={{ height: 36 }}
+        initial={{ scaleY: 0 }}
+        animate={inView ? { scaleY: 1 } : {}}
+        transition={{ duration: 0.5, delay: index * 0.06 + 0.15, ease: [0.22, 1, 0.36, 1] }}
+      />
+
+      {/* Icon */}
+      <Icon
+        size={16}
+        className="text-gold/60 group-hover:text-gold transition-colors duration-400 flex-shrink-0"
+      />
+
+      {/* Text */}
+      <div className="min-w-0">
+        <p className="text-white/85 text-[13px] font-sans font-light tracking-wide leading-none mb-1 group-hover:text-white transition-colors duration-300">
+          {label}
+        </p>
+        <p className="text-white/25 text-[10px] tracking-[0.15em] font-sans">{desc}</p>
+      </div>
+
+      {/* Hover background */}
+      <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/[0.04] transition-colors duration-500" />
+    </motion.div>
+  );
+}
+
 export function AmenitiesSection() {
   return (
-    <section id="amenities" className="bg-emerald-gradient text-white overflow-hidden">
+    <section id="amenities" className="bg-[#080808] text-white overflow-hidden">
 
-      {/* ── Top icon grid ── */}
-      <div className="max-w-7xl mx-auto px-6 pt-20 pb-16">
+      {/* ── Heading ── */}
+      <div className="max-w-7xl mx-auto px-6 pt-20 pb-10">
         <SectionHeading
           script="Facilities"
           title="Hotel Amenities"
           subtitle="Everything you need for a perfect stay, curated with care"
           variant="light"
         />
+      </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-9 gap-px bg-white/10">
+      {/* ── Clean amenity list — 3-col grid ── */}
+      <div className="max-w-7xl mx-auto px-6 pb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-white/[0.06]">
           {amenities.map(({ Icon, label, desc }, i) => (
-            <FadeInView key={label} delay={i * 0.055} direction="up">
-              <div className="bg-emerald-dark/80 hover:bg-gold/10 transition-all duration-400 p-5 flex flex-col items-center text-center group cursor-default min-h-[130px] justify-center">
-                <div className="w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center mb-3 group-hover:border-gold/60 transition-colors">
-                  <Icon size={18} className="text-gold" />
-                </div>
-                <p className="font-serif text-white text-[11px] leading-tight">{label}</p>
-                <p className="text-white/35 text-[9px] tracking-wider mt-1 hidden sm:block">{desc}</p>
-              </div>
-            </FadeInView>
+            <div
+              key={label}
+              className="border-b border-r border-white/[0.06] last:border-r-0 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
+            >
+              <AmenityRow Icon={Icon} label={label} desc={desc} index={i} />
+            </div>
           ))}
         </div>
       </div>
 
       {/* ── Gold separator ── */}
-      <div className="h-px mx-20 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+      <div className="h-px mx-10 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       {/* ── Full-bleed image/video showcase ── */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
@@ -87,7 +129,7 @@ export function AmenitiesSection() {
               {video ? (
                 <video
                   autoPlay muted loop playsInline
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-108"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
                   poster={fallback || undefined}
                 >
                   <source src={video} type="video/mp4" />
@@ -100,31 +142,27 @@ export function AmenitiesSection() {
                   src={image!}
                   alt={label}
                   fill
-                  className="object-cover transition-transform duration-[1000ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-108"
+                  className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.06]"
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  onError={(e) => {
-                    if (fallback) (e.target as HTMLImageElement).src = fallback;
-                  }}
                 />
               )}
-              {/* Dark gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+
+              {/* Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
               {/* Hover overlay */}
-              <div className="absolute inset-0 bg-emerald-dark/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-600" />
 
               {/* Label */}
               <div className="absolute bottom-0 left-0 right-0 p-7 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
                 <p className="font-script text-gold text-2xl leading-none">{label}</p>
-                <p className="text-white/60 text-[10px] tracking-[0.25em] uppercase mt-1">{sublabel}</p>
-                {/* Animated gold underline */}
-                <div className="h-px mt-3 bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                <p className="text-white/50 text-[10px] tracking-[0.25em] uppercase mt-1 font-sans">{sublabel}</p>
+                <div className="h-px mt-3 bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-600" />
               </div>
             </div>
           </FadeInView>
         ))}
       </div>
 
-      {/* ── Bottom padding ── */}
       <div className="h-8" />
     </section>
   );

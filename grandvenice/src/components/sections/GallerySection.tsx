@@ -186,7 +186,7 @@ function DoorsRevealImage({
       {/* Hover overlay with expand icon */}
       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-30">
         <div className="bg-gold/90 p-3 rounded-sm">
-          <Expand size={20} className="text-emerald-dark" />
+          <Expand size={20} className="text-black" />
         </div>
       </div>
 
@@ -219,7 +219,7 @@ export function GallerySection({ items }: GallerySectionProps) {
   }
 
   return (
-    <section id="gallery" className="bg-emerald-dark section-padding">
+    <section id="gallery" className="bg-[#080808] section-padding">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           script="Visual Journey"
@@ -241,7 +241,7 @@ export function GallerySection({ items }: GallerySectionProps) {
               onClick={() => setActiveCategory(cat.key)}
               className={
                 activeCategory === cat.key
-                  ? "bg-gold text-emerald-dark text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 font-semibold"
+                  ? "bg-gold text-black text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 font-semibold"
                   : "border border-white/20 text-white/50 hover:border-gold hover:text-gold text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 cursor-pointer"
               }
             >
