@@ -56,14 +56,14 @@ function AmenityRow({ Icon, label, desc, index }: { Icon: React.ElementType; lab
   return (
     <motion.div
       ref={ref}
-      className="flex items-center gap-5 px-6 py-5 group cursor-default relative"
+      className="flex items-center gap-5 px-6 py-5 group cursor-default relative bg-white"
       initial={{ opacity: 0, x: -16 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.65, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
     >
-      {/* Animated gold left bar */}
+      {/* Sky-blue animated left bar */}
       <motion.div
-        className="w-px flex-shrink-0 bg-gold/40 group-hover:bg-gold transition-colors duration-500"
+        className="w-px flex-shrink-0 bg-sky-200 group-hover:bg-sky-500 transition-colors duration-500"
         style={{ height: 36 }}
         initial={{ scaleY: 0 }}
         animate={inView ? { scaleY: 1 } : {}}
@@ -73,26 +73,26 @@ function AmenityRow({ Icon, label, desc, index }: { Icon: React.ElementType; lab
       {/* Icon */}
       <Icon
         size={16}
-        className="text-gold/60 group-hover:text-gold transition-colors duration-400 flex-shrink-0"
+        className="text-sky-400 group-hover:text-sky-600 transition-colors duration-400 flex-shrink-0"
       />
 
       {/* Text */}
       <div className="min-w-0">
-        <p className="text-white/85 text-[13px] font-sans font-light tracking-wide leading-none mb-1 group-hover:text-white transition-colors duration-300">
+        <p className="text-navy text-[13px] font-sans font-light tracking-wide leading-none mb-1 group-hover:text-sky-700 transition-colors duration-300">
           {label}
         </p>
-        <p className="text-white/25 text-[10px] tracking-[0.15em] font-sans">{desc}</p>
+        <p className="text-grey-400 text-[10px] tracking-[0.15em] font-sans">{desc}</p>
       </div>
 
-      {/* Hover background */}
-      <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/[0.04] transition-colors duration-500" />
+      {/* Hover sky background */}
+      <div className="absolute inset-0 bg-sky-50/0 group-hover:bg-sky-50/70 transition-colors duration-500" />
     </motion.div>
   );
 }
 
 export function AmenitiesSection() {
   return (
-    <section id="amenities" className="bg-[#080808] text-white overflow-hidden">
+    <section id="amenities" className="relative z-10 overflow-hidden bg-grey-100/80 backdrop-blur-sm">
 
       {/* ── Heading ── */}
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-10">
@@ -100,17 +100,17 @@ export function AmenitiesSection() {
           script="Facilities"
           title="Hotel Amenities"
           subtitle="Everything you need for a perfect stay, curated with care"
-          variant="light"
+          variant="dark"
         />
       </div>
 
-      {/* ── Clean amenity list — 3-col grid ── */}
+      {/* ── Amenity list — 3-col grid ── */}
       <div className="max-w-7xl mx-auto px-6 pb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-white/[0.06]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-grey-200">
           {amenities.map(({ Icon, label, desc }, i) => (
             <div
               key={label}
-              className="border-b border-r border-white/[0.06] last:border-r-0 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
+              className="border-b border-r border-grey-200 last:border-r-0 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
             >
               <AmenityRow Icon={Icon} label={label} desc={desc} index={i} />
             </div>
@@ -118,8 +118,8 @@ export function AmenitiesSection() {
         </div>
       </div>
 
-      {/* ── Gold separator ── */}
-      <div className="h-px mx-10 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      {/* ── Sky separator ── */}
+      <div className="h-px mx-10 sky-line" />
 
       {/* ── Full-bleed image/video showcase ── */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
@@ -148,22 +148,22 @@ export function AmenitiesSection() {
               )}
 
               {/* Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-600" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-navy/10 to-transparent" />
+              {/* Hover sky-blue tint */}
+              <div className="absolute inset-0 bg-sky-700/0 group-hover:bg-sky-700/10 transition-all duration-600" />
 
               {/* Label */}
               <div className="absolute bottom-0 left-0 right-0 p-7 translate-y-1 group-hover:translate-y-0 transition-transform duration-500">
-                <p className="font-script text-gold text-2xl leading-none">{label}</p>
-                <p className="text-white/50 text-[10px] tracking-[0.25em] uppercase mt-1 font-sans">{sublabel}</p>
-                <div className="h-px mt-3 bg-gold origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-600" />
+                <p className="font-script text-gold-light text-2xl leading-none">{label}</p>
+                <p className="text-white/60 text-[10px] tracking-[0.25em] uppercase mt-1 font-sans">{sublabel}</p>
+                <div className="h-px mt-3 bg-sky-300 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-600" />
               </div>
             </div>
           </FadeInView>
         ))}
       </div>
 
-      <div className="h-8" />
+      <div className="h-8 bg-grey-100/80" />
     </section>
   );
 }

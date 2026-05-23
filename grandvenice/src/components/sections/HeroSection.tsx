@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { Button } from "@/components/ui/Button";
 import type { HotelInfo } from "@/types";
@@ -10,7 +11,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ hotelInfo }: HeroSectionProps) {
-  const videoRef    = useRef<HTMLVideoElement>(null);
+  const imgRef      = useRef<HTMLDivElement>(null);
   const overlayRef  = useRef<HTMLDivElement>(null);
   const taglineRef  = useRef<HTMLSpanElement>(null);
   const line1Ref    = useRef<HTMLSpanElement>(null);
@@ -25,13 +26,13 @@ export function HeroSection({ hotelInfo }: HeroSectionProps) {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-      tl.fromTo(videoRef.current,  { opacity: 0 }, { opacity: 1, duration: 2 })
+      tl.fromTo(imgRef.current,    { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 2 })
         .fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 1.2 }, "-=1.6")
         .fromTo(barLeftRef.current,  { scaleX: 0, transformOrigin: "left" },  { scaleX: 1, duration: 1 }, "-=0.6")
         .fromTo(barRightRef.current, { scaleX: 0, transformOrigin: "right" }, { scaleX: 1, duration: 1 }, "<")
-        .fromTo(taglineRef.current, { opacity: 0, y: 16, letterSpacing: "0.1em" }, { opacity: 1, y: 0, letterSpacing: "0.3em", duration: 0.9 }, "-=0.4")
-        .fromTo(line1Ref.current,   { opacity: 0, y: 60, rotateX: 8 }, { opacity: 1, y: 0, rotateX: 0, duration: 1.1 }, "-=0.3")
-        .fromTo(line2Ref.current,   { opacity: 0, y: 60, rotateX: 8 }, { opacity: 1, y: 0, rotateX: 0, duration: 1.1 }, "-=0.7")
+        .fromTo(taglineRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.9 }, "-=0.4")
+        .fromTo(line1Ref.current,   { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1.1 }, "-=0.3")
+        .fromTo(line2Ref.current,   { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1.1 }, "-=0.7")
         .fromTo(subRef.current,     { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.5")
         .fromTo(ctaRef.current,     { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8 }, "-=0.5")
         .fromTo(scrollRef.current,  { opacity: 0 },        { opacity: 1, duration: 0.6 },       "-=0.3");
@@ -39,54 +40,43 @@ export function HeroSection({ hotelInfo }: HeroSectionProps) {
     return () => ctx.revert();
   }, []);
 
-  const videoSrc = hotelInfo?.heroVideoUrl || "https://d8j0ntlcm91z4.cloudfront.net/user_33SGtlhu3Z8xFTroOP6w0dMPLwL/hf_20260516_214021_cc7a07f1-31ef-4ff6-8bb4-76dbd76236f8.mp4";
-
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden perspective-[1200px]">
+    <section id="hero" className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
 
-      {/* ── Video ── */}
-      <video
-        ref={videoRef}
-        autoPlay muted loop playsInline
-        className="absolute inset-0 w-full h-full object-cover opacity-0 scale-105"
-        poster="https://a.otcdn.com/imglib/hotelphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141140339900.webp"
-      >
-        <source src={videoSrc} type="video/mp4" />
-        {/* fallback poster fills the frame when no video */}
-      </video>
-
-      {/* ── Multi-layer overlay ── */}
-      <div ref={overlayRef} className="absolute inset-0 opacity-0">
-        {/* Base dark */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/70" />
-        {/* Emerald tint at edges */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-deep/30 via-transparent to-emerald-deep/20" />
-        {/* Vignette */}
-        <div className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%)" }}
+      {/* ── Static hero image ── */}
+      <div ref={imgRef} className="absolute inset-0 opacity-0">
+        <Image
+          src="https://a.otcdn.com/imglib/hotelphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141140339900.webp"
+          alt="GrandVenice Hotel — Main Entrance"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
         />
       </div>
 
-      {/* ── Gold horizontal bars ── */}
+      {/* ── Overlay — navy gradient only at bottom for text legibility ── */}
+      <div ref={overlayRef} className="absolute inset-0 opacity-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-navy/20 to-navy/75" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse at center, transparent 45%, rgba(15,43,64,0.40) 100%)" }}
+        />
+      </div>
+
+      {/* ── Sky-blue accent bars ── */}
       <div
         ref={barLeftRef}
         className="absolute top-0 left-0 w-1/3 h-[1px] origin-left"
-        style={{ background: "linear-gradient(90deg, transparent, #D4AF37)" }}
+        style={{ background: "linear-gradient(90deg, transparent, rgba(184,220,243,0.7))" }}
       />
       <div
         ref={barRightRef}
         className="absolute top-0 right-0 w-1/3 h-[1px] origin-right"
-        style={{ background: "linear-gradient(270deg, transparent, #D4AF37)" }}
+        style={{ background: "linear-gradient(270deg, transparent, rgba(184,220,243,0.7))" }}
       />
       <div className="absolute bottom-0 left-0 right-0 h-[1px]"
-        style={{ background: "linear-gradient(90deg, transparent, #D4AF37 50%, transparent)" }}
-      />
-
-      {/* ── Grain ── */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.04]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
-        }}
+        style={{ background: "linear-gradient(90deg, transparent, rgba(184,220,243,0.5) 50%, transparent)" }}
       />
 
       {/* ── Content ── */}
@@ -95,19 +85,19 @@ export function HeroSection({ hotelInfo }: HeroSectionProps) {
         {/* Tagline */}
         <span
           ref={taglineRef}
-          className="block font-sans text-[10px] tracking-[0.3em] text-gold/80 uppercase mb-6 opacity-0"
+          className="block font-sans text-[10px] tracking-[0.3em] text-sky-200 uppercase mb-6 opacity-0"
         >
           Port Harcourt · Rivers State · Nigeria
         </span>
 
         {/* Script accent */}
         <div className="overflow-hidden mb-2">
-          <span className="block font-script text-gold text-4xl md:text-5xl leading-none">
-            Welcome to
+          <span className="block font-script text-gold-light text-4xl md:text-5xl leading-none">
+            Grand Attention, Excellent Service
           </span>
         </div>
 
-        {/* Main headline — two lines */}
+        {/* Main headline */}
         <h1 className="perspective-[800px]">
           <span className="split-line">
             <span
@@ -127,17 +117,17 @@ export function HeroSection({ hotelInfo }: HeroSectionProps) {
           </span>
         </h1>
 
-        {/* Gold divider */}
+        {/* Sky divider */}
         <div className="flex items-center justify-center gap-4 my-7">
-          <div className="h-px w-16 bg-gold/40" />
-          <div className="w-1.5 h-1.5 rotate-45 bg-gold/70" />
-          <div className="h-px w-16 bg-gold/40" />
+          <div className="h-px w-16 bg-sky-200/50" />
+          <div className="w-1.5 h-1.5 rotate-45 bg-sky-200/80" />
+          <div className="h-px w-16 bg-sky-200/50" />
         </div>
 
         {/* Sub */}
         <p
           ref={subRef}
-          className="text-white/65 text-sm md:text-base tracking-[0.12em] max-w-sm mx-auto mb-10 opacity-0 uppercase"
+          className="text-white/75 text-sm md:text-base tracking-[0.12em] max-w-sm mx-auto mb-10 opacity-0 uppercase"
         >
           {hotelInfo?.heroSubtext || "Port Harcourt's Premier Luxury Destination"}
         </p>
@@ -147,7 +137,7 @@ export function HeroSection({ hotelInfo }: HeroSectionProps) {
           ref={ctaRef}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0"
         >
-          <Button variant="gold" size="lg" href="/booking">
+          <Button variant="sky" size="lg" href="/booking">
             Reserve Your Stay
           </Button>
           <Button variant="ghost-white" size="lg" href="#rooms">
@@ -161,10 +151,10 @@ export function HeroSection({ hotelInfo }: HeroSectionProps) {
         ref={scrollRef}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-0"
       >
-        <span className="text-white/30 text-[9px] tracking-[0.4em] uppercase">Discover</span>
-        <div className="relative w-[1px] h-14 bg-white/10 overflow-hidden">
+        <span className="text-white/40 text-[9px] tracking-[0.4em] uppercase">Discover</span>
+        <div className="relative w-[1px] h-14 bg-white/15 overflow-hidden">
           <div
-            className="absolute top-0 left-0 w-full bg-gold"
+            className="absolute top-0 left-0 w-full bg-sky-300"
             style={{
               animation: "scrollLine 2s ease-in-out infinite",
               height: "100%",

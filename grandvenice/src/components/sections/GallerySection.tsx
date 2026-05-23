@@ -53,7 +53,7 @@ const REAL_HOTEL_GALLERY: GalleryItemInternal[] = [
     image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2013/05/img2a.jpg" } },
   },
 
-  // ── Rooms (confirmed a.otcdn.com/imglib/roomphotos/) ─────────────────────
+  // ── Rooms ─────────────────────────────────────────────────────────────────
   {
     _id: "r8",
     altText: "Suite Bedroom",
@@ -113,7 +113,7 @@ const REAL_HOTEL_GALLERY: GalleryItemInternal[] = [
     image: { asset: { url: "https://www.grandvenicenigeria.com/wp-content/uploads/sites/3/2013/05/img1a.jpg" } },
   },
 
-  // ── Lobby (confirmed travelapi reception + grandvenice lounge) ────────────
+  // ── Lobby ────────────────────────────────────────────────────────────────
   {
     _id: "r4",
     altText: "Hotel Interior — Lounge Area",
@@ -197,42 +197,42 @@ function DoorsRevealImage({
         unoptimized
       />
 
-      {/* Left door */}
+      {/* Left door — sky-blue */}
       <motion.div
         className="absolute inset-0 right-1/2 z-10"
-        style={{ background: "linear-gradient(135deg, #0D2B1F 0%, #1B4332 100%)" }}
+        style={{ background: "linear-gradient(135deg, #DBEEF9 0%, #B8DCF3 100%)" }}
         initial={{ x: 0 }}
         animate={inView ? { x: "-100%" } : { x: 0 }}
         transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
       />
 
-      {/* Right door */}
+      {/* Right door — sky-blue */}
       <motion.div
         className="absolute inset-0 left-1/2 z-10"
-        style={{ background: "linear-gradient(315deg, #0D2B1F 0%, #1B4332 100%)" }}
+        style={{ background: "linear-gradient(315deg, #DBEEF9 0%, #B8DCF3 100%)" }}
         initial={{ x: 0 }}
         animate={inView ? { x: "100%" } : { x: 0 }}
         transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
       />
 
-      {/* Gold seam line that fades away */}
+      {/* Sky seam line that fades away */}
       <motion.div
         className="absolute inset-y-0 left-1/2 -translate-x-px w-px z-20"
-        style={{ background: "linear-gradient(to bottom, transparent, #D4AF37 30%, #D4AF37 70%, transparent)" }}
+        style={{ background: "linear-gradient(to bottom, transparent, #4A9FC8 30%, #4A9FC8 70%, transparent)" }}
         initial={{ opacity: 1 }}
         animate={inView ? { opacity: 0 } : { opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.6 }}
       />
 
-      {/* Hover overlay with expand icon */}
-      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-30">
-        <div className="bg-gold/90 p-3 rounded-sm">
-          <Expand size={20} className="text-black" />
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-navy/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-30">
+        <div className="bg-sky-500/90 p-3">
+          <Expand size={20} className="text-white" />
         </div>
       </div>
 
       {/* Alt text label */}
-      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
+      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy/65 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
         <p className="text-white text-[10px] tracking-[0.15em] uppercase">{alt}</p>
       </div>
     </div>
@@ -260,15 +260,15 @@ export function GallerySection({ items }: GallerySectionProps) {
   }
 
   return (
-    <section id="gallery" className="bg-[#080808] section-padding">
+    <section id="gallery" className="relative z-10 bg-white/85 backdrop-blur-sm section-padding">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           script="Visual Journey"
           title="Photo Gallery"
-          variant="light"
+          variant="dark"
         />
 
-        {/* Category filter tabs */}
+        {/* Category filter tabs — sky-blue active */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -282,8 +282,8 @@ export function GallerySection({ items }: GallerySectionProps) {
               onClick={() => setActiveCategory(cat.key)}
               className={
                 activeCategory === cat.key
-                  ? "bg-gold text-black text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 font-semibold"
-                  : "border border-white/20 text-white/50 hover:border-gold hover:text-gold text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 cursor-pointer"
+                  ? "bg-sky-700 text-white text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 font-semibold"
+                  : "border border-grey-200 text-slate hover:border-sky-400 hover:text-sky-700 text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 cursor-pointer"
               }
             >
               {cat.label}
@@ -313,7 +313,7 @@ export function GallerySection({ items }: GallerySectionProps) {
           className="flex justify-center mt-14"
         >
           <Button
-            variant="ghost-white"
+            variant="ghost-sky"
             href="https://www.grandvenicenigeria.com"
             external
           >

@@ -69,32 +69,29 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
   return (
     <section
       id="testimonials"
-      className="relative bg-[#0c1f15] text-white overflow-hidden"
-      style={{
-        backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(45,106,79,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.06) 0%, transparent 50%)",
-      }}
+      className="relative z-10 bg-sky-50/85 backdrop-blur-sm overflow-hidden"
     >
-      {/* Grain */}
+      {/* Soft sky radial glow */}
       <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
+          backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(74,159,200,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(26,111,168,0.05) 0%, transparent 50%)",
         }}
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28">
 
         <FadeInView direction="up">
-          <SectionHeading script="Guest Reviews" title="What Our Guests Say" variant="light" />
+          <SectionHeading script="Guest Reviews" title="What Our Guests Say" variant="dark" />
         </FadeInView>
 
         <FadeInView direction="up" delay={0.2}>
           <div className="relative max-w-4xl mx-auto">
 
-            {/* Huge decorative quote */}
+            {/* Decorative quote mark */}
             <div
               className="absolute -top-8 left-0 font-serif text-[160px] leading-none select-none pointer-events-none hidden lg:block"
-              style={{ color: "rgba(212,175,55,0.07)" }}
+              style={{ color: "rgba(74,159,200,0.10)" }}
             >
               &ldquo;
             </div>
@@ -108,14 +105,14 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                     className="flex-[0_0_100%] min-w-0 px-4 md:px-8"
                   >
                     <div className="text-center pt-8">
-                      {/* Stars */}
+                      {/* Gold stars */}
                       <div className="flex justify-center gap-1 mb-7">
                         {Array.from({ length: 5 }).map((_, i) => (
                           <svg
                             key={i}
                             width="16" height="16" viewBox="0 0 24 24"
-                            fill={i < t.rating ? "#D4AF37" : "none"}
-                            stroke="#D4AF37" strokeWidth="1.5"
+                            fill={i < t.rating ? "#B8860B" : "none"}
+                            stroke="#B8860B" strokeWidth="1.5"
                             className="transition-colors"
                           >
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -124,27 +121,27 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                       </div>
 
                       {/* Comment */}
-                      <blockquote className="font-serif text-white/85 text-xl md:text-2xl lg:text-3xl font-light italic leading-[1.6] mb-10 max-w-3xl mx-auto">
+                      <blockquote className="font-serif text-navy text-xl md:text-2xl lg:text-3xl font-light italic leading-[1.6] mb-10 max-w-3xl mx-auto">
                         &ldquo;{t.comment}&rdquo;
                       </blockquote>
 
-                      {/* Divider */}
+                      {/* Sky divider */}
                       <div className="flex items-center justify-center gap-4 mb-6">
-                        <div className="h-px w-12 bg-gold/30" />
-                        <div className="w-1.5 h-1.5 rotate-45 bg-gold/50" />
-                        <div className="h-px w-12 bg-gold/30" />
+                        <div className="h-px w-12 bg-sky-200" />
+                        <div className="w-1.5 h-1.5 rotate-45 bg-sky-400" />
+                        <div className="h-px w-12 bg-sky-200" />
                       </div>
 
                       {/* Attribution */}
-                      <p className="font-serif text-white text-lg font-light">{t.guestName}</p>
+                      <p className="font-serif text-navy text-lg font-light">{t.guestName}</p>
                       <div className="flex items-center justify-center gap-3 mt-1.5">
                         {t.guestLocation && (
-                          <span className="text-white/40 text-[10px] tracking-wider">{t.guestLocation}</span>
+                          <span className="text-slate text-[10px] tracking-wider">{t.guestLocation}</span>
                         )}
                         {t.platform && (
                           <>
-                            <span className="text-white/20 text-[10px]">·</span>
-                            <span className="text-gold/60 text-[10px] tracking-widest uppercase">{t.platform}</span>
+                            <span className="text-grey-400 text-[10px]">·</span>
+                            <span className="text-sky-600 text-[10px] tracking-widest uppercase">{t.platform}</span>
                           </>
                         )}
                       </div>
@@ -159,7 +156,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
               <button
                 onClick={scrollPrev}
                 aria-label="Previous"
-                className="w-11 h-11 border border-white/15 text-white/50 hover:border-gold hover:text-gold flex items-center justify-center transition-all duration-300"
+                className="w-11 h-11 border border-sky-200 text-slate hover:border-sky-500 hover:text-sky-700 flex items-center justify-center transition-all duration-300"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -173,8 +170,8 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                     aria-label={`Go to slide ${i + 1}`}
                     className={`transition-all duration-300 rounded-full ${
                       i === selectedIndex
-                        ? "bg-gold w-6 h-1.5"
-                        : "bg-white/20 w-1.5 h-1.5 hover:bg-white/40"
+                        ? "bg-sky-600 w-6 h-1.5"
+                        : "bg-sky-200 w-1.5 h-1.5 hover:bg-sky-300"
                     }`}
                   />
                 ))}
@@ -183,7 +180,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
               <button
                 onClick={scrollNext}
                 aria-label="Next"
-                className="w-11 h-11 border border-white/15 text-white/50 hover:border-gold hover:text-gold flex items-center justify-center transition-all duration-300"
+                className="w-11 h-11 border border-sky-200 text-slate hover:border-sky-500 hover:text-sky-700 flex items-center justify-center transition-all duration-300"
               >
                 <ChevronRight size={18} />
               </button>

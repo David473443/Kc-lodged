@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-type Variant = "gold" | "emerald" | "ghost-white" | "ghost-emerald" | "outline";
+type Variant = "gold" | "emerald" | "sky" | "navy" | "ghost-white" | "ghost-sky" | "ghost-emerald" | "outline";
 type Size = "sm" | "md" | "lg";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -15,15 +15,21 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<Variant, string> = {
   gold:
-    "bg-gold text-emerald-dark hover:bg-gold-light border border-gold font-semibold",
+    "bg-gold text-white hover:bg-gold-light border border-gold font-semibold",
   emerald:
-    "bg-emerald text-white hover:bg-emerald-dark border border-emerald font-semibold",
+    "bg-sky-700 text-white hover:bg-sky-500 border border-sky-700 font-semibold",
+  sky:
+    "bg-sky-700 text-white hover:bg-sky-500 border border-sky-700 font-semibold",
+  navy:
+    "bg-navy text-white hover:bg-navy/80 border border-navy font-semibold",
   "ghost-white":
     "bg-transparent text-white hover:bg-white/10 border border-white/60 font-medium",
+  "ghost-sky":
+    "bg-transparent text-sky-700 hover:bg-sky-50 border border-sky-500 font-medium",
   "ghost-emerald":
-    "bg-transparent text-emerald hover:bg-emerald/5 border border-emerald font-medium",
+    "bg-transparent text-sky-700 hover:bg-sky-50 border border-sky-500 font-medium",
   outline:
-    "bg-transparent text-emerald-dark hover:bg-emerald-dark hover:text-white border border-emerald-dark font-medium",
+    "bg-transparent text-navy hover:bg-navy hover:text-white border border-navy font-medium",
 };
 
 const sizes: Record<Size, string> = {
@@ -33,7 +39,7 @@ const sizes: Record<Size, string> = {
 };
 
 export function Button({
-  variant = "emerald",
+  variant = "sky",
   size = "md",
   href,
   external,

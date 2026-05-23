@@ -1,27 +1,28 @@
 import type { Metadata } from "next";
-import { Playfair_Display, DM_Sans, Great_Vibes } from "next/font/google";
+import { Cormorant_Garamond, Source_Sans_3, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollImageBackdrop } from "@/components/layout/ScrollImageBackdrop";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const sourceSans = Source_Sans_3({
+  variable: "--font-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
 const greatVibes = Great_Vibes({
-  variable: "--font-great-vibes",
+  variable: "--font-script",
   subsets: ["latin"],
   weight: "400",
   display: "swap",
@@ -79,12 +80,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${dmSans.variable} ${greatVibes.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${sourceSans.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-obsidian text-charcoal flex flex-col">
+      <body className="min-h-full bg-sky-50 text-navy flex flex-col">
         <SmoothScrollProvider>
+          <ScrollImageBackdrop />
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="relative z-10 flex-1">{children}</main>
           <Footer />
         </SmoothScrollProvider>
       </body>

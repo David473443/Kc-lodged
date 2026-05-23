@@ -11,7 +11,7 @@ const benefits = [
 
 export function BookingSection() {
   return (
-    <section id="booking-cta" className="relative overflow-hidden min-h-[680px] flex items-center">
+    <section id="booking-cta" className="relative z-10 overflow-hidden min-h-[680px] flex items-center">
 
       {/* ── Background image ── */}
       <div className="absolute inset-0">
@@ -23,11 +23,11 @@ export function BookingSection() {
           sizes="100vw"
           priority={false}
         />
-        {/* Dark emerald overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-deep/95 via-emerald-dark/85 to-emerald-dark/60" />
+        {/* Deep navy overlay — Raffles dark footer feel */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/80 to-navy/55" />
         {/* Grain */}
         <div
-          className="absolute inset-0 opacity-[0.04] pointer-events-none"
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
           }}
@@ -39,7 +39,7 @@ export function BookingSection() {
 
           {/* Script */}
           <FadeInView delay={0.05}>
-            <span className="font-script text-gold text-3xl block mb-2">Reserve Your Stay</span>
+            <span className="font-script text-gold-light text-3xl block mb-2">Reserve Your Stay</span>
           </FadeInView>
 
           {/* Headline */}
@@ -50,17 +50,17 @@ export function BookingSection() {
             </h2>
           </FadeInView>
 
-          {/* Gold divider */}
+          {/* Sky divider */}
           <FadeInView delay={0.2}>
             <div className="flex items-center gap-3 mb-7">
-              <div className="h-px w-10 bg-gold" />
-              <div className="w-1.5 h-1.5 rotate-45 bg-gold/60" />
+              <div className="h-px w-10 bg-sky-300" />
+              <div className="w-1.5 h-1.5 rotate-45 bg-sky-300/60" />
             </div>
           </FadeInView>
 
           {/* Description */}
           <FadeInView delay={0.25}>
-            <p className="text-white/65 text-base leading-[1.8] mb-10 max-w-sm">
+            <p className="text-white/70 text-base leading-[1.8] mb-10 max-w-sm">
               Book directly through our website and enjoy exclusive benefits —
               complimentary breakfast, early check-in, and special room upgrades
               when available.
@@ -73,11 +73,11 @@ export function BookingSection() {
               {benefits.map(({ Icon, label, desc }) => (
                 <div
                   key={label}
-                  className="border border-white/10 bg-white/5 hover:bg-white/10 hover:border-gold/30 transition-all duration-300 p-4"
+                  className="border border-sky-700/50 bg-sky-900/30 hover:bg-sky-800/30 hover:border-sky-400/50 transition-all duration-300 p-4"
                 >
-                  <Icon size={18} className="text-gold mb-2" />
+                  <Icon size={18} className="text-sky-300 mb-2" />
                   <p className="text-white text-[11px] font-semibold tracking-wide mb-0.5">{label}</p>
-                  <p className="text-white/40 text-[10px] tracking-wide">{desc}</p>
+                  <p className="text-white/45 text-[10px] tracking-wide">{desc}</p>
                 </div>
               ))}
             </div>
@@ -86,7 +86,7 @@ export function BookingSection() {
           {/* CTAs */}
           <FadeInView delay={0.45}>
             <div className="flex flex-wrap gap-4">
-              <Button variant="gold" size="lg" href="/booking">
+              <Button variant="sky" size="lg" href="/booking">
                 Book Your Room
               </Button>
               <Button variant="ghost-white" size="lg" href="tel:+2347039350238">
@@ -105,12 +105,12 @@ export function BookingSection() {
       </div>
 
       {/* Right decorative element */}
-      <div className="absolute right-16 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-3 opacity-20">
-        <div className="h-32 w-px bg-gold" />
-        <div className="font-serif text-gold text-[10px] tracking-[0.4em] uppercase rotate-90 whitespace-nowrap">
+      <div className="absolute right-16 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-3 opacity-25">
+        <div className="h-32 w-px bg-sky-300" />
+        <div className="font-serif text-sky-300 text-[10px] tracking-[0.4em] uppercase rotate-90 whitespace-nowrap">
           Reserve · Experience · Return
         </div>
-        <div className="h-32 w-px bg-gold" />
+        <div className="h-32 w-px bg-sky-300" />
       </div>
     </section>
   );
