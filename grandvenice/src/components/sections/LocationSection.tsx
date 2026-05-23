@@ -16,7 +16,7 @@ function SkyDivider() {
 
 export function LocationSection() {
   return (
-    <section id="contact" className="relative z-10 bg-white/80 backdrop-blur-sm section-padding">
+    <section id="contact" className="relative z-10 bg-stone-100/88 backdrop-blur-sm section-padding">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           script="Find Us"

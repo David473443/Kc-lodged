@@ -69,7 +69,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
   return (
     <section
       id="testimonials"
-      className="relative z-10 bg-sky-50/85 backdrop-blur-sm overflow-hidden"
+      className="relative z-10 bg-stone-200/75 backdrop-blur-sm overflow-hidden"
     >
       {/* Soft sky radial glow */}
       <div

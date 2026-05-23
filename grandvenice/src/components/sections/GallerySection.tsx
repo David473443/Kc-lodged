@@ -260,7 +260,7 @@ export function GallerySection({ items }: GallerySectionProps) {
   }
 
   return (
-    <section id="gallery" className="relative z-10 bg-white/85 backdrop-blur-sm section-padding">
+    <section id="gallery" className="relative z-10 bg-stone-100/88 backdrop-blur-sm section-padding">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           script="Visual Journey"
@@ -282,8 +282,8 @@ export function GallerySection({ items }: GallerySectionProps) {
               onClick={() => setActiveCategory(cat.key)}
               className={
                 activeCategory === cat.key
-                  ? "bg-sky-700 text-white text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 font-semibold"
-                  : "border border-grey-200 text-slate hover:border-sky-400 hover:text-sky-700 text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 cursor-pointer"
+                  ? "bg-navy text-white text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 font-semibold"
+                  : "border border-stone-300 text-slate hover:border-navy hover:text-navy text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 cursor-pointer"
               }
             >
               {cat.label}

@@ -27,7 +27,7 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
   return (
     <div
       ref={ref}
-      className="relative flex flex-col items-center py-14 px-6 text-center group overflow-hidden bg-white/70 backdrop-blur-sm"
+      className="relative flex flex-col items-center py-14 px-6 text-center group overflow-hidden bg-stone-100/80 backdrop-blur-sm"
     >
       {/* Sky-blue top bar */}
       <motion.div
@@ -72,7 +72,7 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
       </motion.div>
 
       {/* Hover sky-blue glow */}
-      <div className="absolute inset-0 bg-sky-100/0 group-hover:bg-sky-100/40 transition-colors duration-700" />
+      <div className="absolute inset-0 bg-stone-300/0 group-hover:bg-stone-300/30 transition-colors duration-700" />
     </div>
   );
 }
@@ -97,9 +97,9 @@ export function WelcomeStrip() {
       </div>
 
       {/* ── Stats — light panels ── */}
-      <section className="bg-sky-100/50">
+      <section className="bg-stone-200/50">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-sky-200 divide-y lg:divide-y-0">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-stone-300 divide-y lg:divide-y-0">
             {stats.map((stat, i) => (
               <StatCard key={stat.label} stat={stat} index={i} />
             ))}

@@ -56,7 +56,7 @@ function AmenityRow({ Icon, label, desc, index }: { Icon: React.ElementType; lab
   return (
     <motion.div
       ref={ref}
-      className="flex items-center gap-5 px-6 py-5 group cursor-default relative bg-white"
+      className="flex items-center gap-5 px-6 py-5 group cursor-default relative bg-stone-100/70"
       initial={{ opacity: 0, x: -16 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.65, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
@@ -85,14 +85,14 @@ function AmenityRow({ Icon, label, desc, index }: { Icon: React.ElementType; lab
       </div>
 
       {/* Hover sky background */}
-      <div className="absolute inset-0 bg-sky-50/0 group-hover:bg-sky-50/70 transition-colors duration-500" />
+      <div className="absolute inset-0 bg-stone-200/0 group-hover:bg-stone-200/60 transition-colors duration-500" />
     </motion.div>
   );
 }
 
 export function AmenitiesSection() {
   return (
-    <section id="amenities" className="relative z-10 overflow-hidden bg-grey-100/80 backdrop-blur-sm">
+    <section id="amenities" className="relative z-10 overflow-hidden bg-stone-200/75 backdrop-blur-sm">
 
       {/* ── Heading ── */}
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-10">
@@ -106,11 +106,11 @@ export function AmenitiesSection() {
 
       {/* ── Amenity list — 3-col grid ── */}
       <div className="max-w-7xl mx-auto px-6 pb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-grey-200">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border border-stone-300/60">
           {amenities.map(({ Icon, label, desc }, i) => (
             <div
               key={label}
-              className="border-b border-r border-grey-200 last:border-r-0 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
+              className="border-b border-r border-stone-300/60 last:border-r-0 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
             >
               <AmenityRow Icon={Icon} label={label} desc={desc} index={i} />
             </div>
@@ -163,7 +163,7 @@ export function AmenitiesSection() {
         ))}
       </div>
 
-      <div className="h-8 bg-grey-100/80" />
+      <div className="h-8 bg-stone-200/75" />
     </section>
   );
 }

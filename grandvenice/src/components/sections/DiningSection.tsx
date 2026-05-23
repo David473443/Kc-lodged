@@ -20,7 +20,7 @@ export function DiningSection() {
 
   return (
     <section id="dining" ref={sectionRef} className="relative z-10 overflow-hidden">
-      <div className="bg-cream/90 backdrop-blur-sm">
+      <div className="bg-stone-100/90 backdrop-blur-sm">
 
         {/* ── Content ── */}
         <div className="max-w-7xl mx-auto px-6 py-20 lg:py-28">
@@ -37,7 +37,7 @@ export function DiningSection() {
               />
 
               <FadeInView delay={0.2}>
-                <p className="text-slate leading-[1.9] text-base mb-5 font-sans font-light">
+                <p className="text-slate leading-[1.9] text-lg mb-5 font-sans font-light">
                   Experience culinary artistry at its finest at our signature
                   restaurant. Our talented chefs craft exquisite dishes inspired
                   by international flavours, using the finest local and imported
@@ -46,7 +46,7 @@ export function DiningSection() {
               </FadeInView>
 
               <FadeInView delay={0.3}>
-                <p className="text-slate leading-[1.9] text-base mb-8 font-sans font-light">
+                <p className="text-slate leading-[1.9] text-lg mb-8 font-sans font-light">
                   Whether joining us for an intimate breakfast, a business lunch,
                   or a romantic dinner, the GrandVenice Restaurant delivers an
                   unparalleled dining experience in an elegant setting.
@@ -55,7 +55,7 @@ export function DiningSection() {
 
               {/* Opening hours */}
               <FadeInView delay={0.4}>
-                <div className="border border-sky-200 p-6 mb-8 bg-sky-50/80">
+                <div className="border border-stone-300 p-6 mb-8 bg-stone-200/50">
                   <p className="text-sky-600 text-[10px] tracking-[0.3em] uppercase mb-5 font-sans">
                     Opening Hours
                   </p>
@@ -63,7 +63,7 @@ export function DiningSection() {
                     {hours.map(({ meal, time }) => (
                       <li key={meal} className="flex justify-between items-center">
                         <span className="text-slate text-sm font-sans">{meal}</span>
-                        <div className="h-px flex-1 mx-4 bg-sky-200" />
+                        <div className="h-px flex-1 mx-4 bg-stone-300" />
                         <span className="font-serif text-navy font-light">{time}</span>
                       </li>
                     ))}

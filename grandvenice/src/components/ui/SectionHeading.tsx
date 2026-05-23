@@ -43,7 +43,7 @@ export function SectionHeading({
       <FadeInView delay={0.2}>
         <h2
           className={cn(
-            "font-serif font-light text-3xl md:text-5xl leading-tight tracking-wide",
+            "font-serif font-light text-4xl md:text-5xl lg:text-6xl leading-tight tracking-wide",
             isLight ? "text-white" : "text-navy"
           )}
         >

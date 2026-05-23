@@ -9,7 +9,7 @@ interface RoomsSectionProps {
 
 export async function RoomsSection({ rooms }: RoomsSectionProps) {
   return (
-    <section id="rooms" className="relative z-10 overflow-hidden section-padding bg-white/80 backdrop-blur-sm">
+    <section id="rooms" className="relative z-10 overflow-hidden section-padding bg-stone-100/88 backdrop-blur-sm">
 
       {/* ── Sky-blue accent hairline top ── */}
       <div className="absolute top-0 left-0 right-0 h-px"

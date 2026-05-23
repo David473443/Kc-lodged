@@ -24,10 +24,10 @@ export function Navbar() {
       <nav
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          "bg-white/95 backdrop-blur-md",
+          "bg-stone-100/97 backdrop-blur-md",
           scrolled
-            ? "shadow-sm border-b border-sky-100"
-            : "border-b border-sky-50/60"
+            ? "shadow-sm border-b border-stone-300/60"
+            : "border-b border-stone-200/40"
         )}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-[72px] flex items-center justify-between">
@@ -95,7 +95,7 @@ export function Navbar() {
 
         {/* Drawer panel */}
         <div className={cn(
-          "absolute top-0 right-0 h-full w-[320px] bg-cream flex flex-col",
+          "absolute top-0 right-0 h-full w-[320px] bg-stone-100 flex flex-col",
           "transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           mobileOpen ? "translate-x-0" : "translate-x-full"
         )}>
