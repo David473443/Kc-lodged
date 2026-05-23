@@ -1,42 +1,59 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* ── Dark luxury palette ── */
-  --color-obsidian:      #07090d;
-  --color-void:          #0a0c10;
-  --color-surface:       #111318;
-  --color-surface-2:     #181b22;
-  --color-surface-3:     #1f2330;
+  /* ── Warm stone-gray palette ── */
+  --color-stone-50:  #F8F7F4;
+  --color-stone-100: #F3F1ED;
+  --color-stone-200: #EAE8E3;
+  --color-stone-300: #D8D5CE;
+  --color-stone-400: #B4B0A7;
+  --color-stone-500: #8A867D;
 
-  /* Legacy ivory → now near-black for compatibility */
-  --color-ivory:         #07090d;
-  --color-ivory-50:      #111318;
-  --color-ivory-100:     #07090d;
-  --color-ivory-200:     #181b22;
+  /* Sky-blue kept for accents only (buttons, icons, underlines) */
+  --color-sky-50:   #F3F1ED;
+  --color-sky-100:  #EAE8E3;
+  --color-sky-200:  #D8D5CE;
+  --color-sky-300:  #7EC5EB;
+  --color-sky-500:  #4A9FC8;
+  --color-sky-700:  #1A6FA8;
+  --color-sky-900:  #0F3D5C;
 
-  /* Emerald (kept — used for accents only now) */
-  --color-emerald:       #2D6A4F;
-  --color-emerald-dark:  #1B4332;
-  --color-emerald-deep:  #0D2B1F;
-  --color-emerald-mid:   #2D6A4F;
-  --color-emerald-light: #40916C;
-  --color-emerald-pale:  #74C69D;
-  --color-emerald-50:    #D8F3DC;
+  --color-navy:     #0F2B40;
+  --color-slate:    #3A3A3A;
+  --color-grey-100: #F3F1ED;
+  --color-grey-200: #D8D5CE;
+  --color-grey-400: #8A867D;
+  --color-cream:    #F8F7F4;
 
-  /* Gold — primary accent */
-  --color-gold:          #C9A84C;
-  --color-gold-light:    #E2C06A;
-  --color-gold-dark:     #9E7A1E;
-  --color-gold-pale:     #F0DFA0;
+  /* Heritage accents */
+  --color-gold:       #B8860B;
+  --color-gold-light: #D4A842;
+  --color-gold-pale:  #F0DFA0;
 
-  /* Text */
-  --color-charcoal:      #E8E2D8;
-  --color-muted:         #8A8278;
+  /* Legacy compatibility aliases */
+  --color-obsidian:      #0F2B40;
+  --color-void:          #0F2B40;
+  --color-surface:       #F3F1ED;
+  --color-surface-2:     #EAE8E3;
+  --color-surface-3:     #D8D5CE;
+  --color-ivory:         #F8F7F4;
+  --color-ivory-50:      #F3F1ED;
+  --color-ivory-100:     #F8F7F4;
+  --color-ivory-200:     #EAE8E3;
+  --color-emerald:       #1A6FA8;
+  --color-emerald-dark:  #0F3D5C;
+  --color-emerald-deep:  #0F2B40;
+  --color-emerald-mid:   #1A6FA8;
+  --color-emerald-light: #4A9FC8;
+  --color-emerald-pale:  #D8D5CE;
+  --color-emerald-50:    #EAE8E3;
+  --color-charcoal:      #3A3A3A;
+  --color-muted:         #8A867D;
 
-  /* ── Fonts ── */
-  --font-serif:   var(--font-playfair), "Didot", "Bodoni MT", Georgia, serif;
-  --font-sans:    var(--font-dm-sans), system-ui, sans-serif;
-  --font-script:  var(--font-great-vibes), cursive;
+  /* ── Fonts (Next.js overrides these with actual loaded font on html element) ── */
+  --font-serif:   "Cormorant Garamond", "Didot", "Bodoni MT", Georgia, serif;
+  --font-sans:    "Source Sans 3", system-ui, sans-serif;
+  --font-script:  "Great Vibes", cursive;
 
   /* ── Animations ── */
   --animate-fade-up:      fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
@@ -115,31 +132,35 @@
 
 /* ─────────────────── Base ─────────────────── */
 :root {
-  --background: #07090d;
-  --foreground: #E8E2D8;
+  --background: #F3F1ED;
+  --foreground: #1A1A18;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 17px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  background-color: #F3F1ED;
+  /* Warm linen-paper texture overlay */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.055'/%3E%3C/svg%3E");
+  color: #1A1A18;
+  font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Luxury dark scrollbar */
+/* Stone-gray scrollbar */
 ::-webkit-scrollbar        { width: 4px; }
-::-webkit-scrollbar-track  { background: #07090d; }
-::-webkit-scrollbar-thumb  { background: linear-gradient(180deg, #C9A84C 0%, #2D6A4F 100%); border-radius: 4px; }
+::-webkit-scrollbar-track  { background: #F3F1ED; }
+::-webkit-scrollbar-thumb  { background: linear-gradient(180deg, #1A6FA8 0%, #8A867D 100%); border-radius: 4px; }
 
 /* Focus */
 *:focus-visible {
-  outline: 1px solid #C9A84C;
+  outline: 1px solid #1A6FA8;
   outline-offset: 3px;
 }
 
@@ -153,6 +174,29 @@ body {
     padding-top: 10rem;
     padding-bottom: 10rem;
   }
+}
+
+/* ─────────────────── Stone-gray content panels ─────────────────── */
+.light-panel {
+  background: rgba(243,241,237,0.90);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.cream-panel {
+  background: rgba(248,247,244,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.sky-panel {
+  background: rgba(243,241,237,0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+.content-panel {
+  background: rgba(243,241,237,0.85);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(216,213,206,0.5);
 }
 
 /* ─────────────────── Parallax image section ─────────────────── */
@@ -171,18 +215,18 @@ body {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(7,9,13,0.72) 0%,
-    rgba(7,9,13,0.55) 40%,
-    rgba(7,9,13,0.72) 100%
+    rgba(15,43,64,0.65) 0%,
+    rgba(15,43,64,0.45) 40%,
+    rgba(15,43,64,0.65) 100%
   );
 }
 
 /* ─────────────────── Glass card ─────────────────── */
 .glass-card {
-  background: rgba(255,255,255,0.04);
+  background: rgba(248,247,244,0.82);
   backdrop-filter: blur(16px) saturate(120%);
   -webkit-backdrop-filter: blur(16px) saturate(120%);
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(216,213,206,0.6);
   position: relative;
   overflow: hidden;
 }
@@ -192,23 +236,32 @@ body {
   top: 0; left: -80%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
   animation: glassSheen 6s ease-in-out infinite;
   pointer-events: none;
 }
 
-/* ─────────────────── Noise grain ─────────────────── */
-.grain-overlay::after {
+/* ─────────────────── Sky underline hover (accent) ─────────────────── */
+.sky-underline {
+  position: relative;
+}
+.sky-underline::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 1;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #4A9FC8;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.sky-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-/* ─────────────────── Gold underline hover ─────────────────── */
 .gold-underline {
   position: relative;
 }
@@ -219,7 +272,7 @@ body {
   left: 0;
   width: 100%;
   height: 1px;
-  background: #C9A84C;
+  background: #B8860B;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
@@ -264,20 +317,21 @@ body {
 }
 .luxury-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 40px rgba(201,168,76,0.06);
+  box-shadow: 0 40px 80px rgba(15,43,64,0.12), 0 0 40px rgba(26,111,168,0.06);
 }
 
-/* ─────────────────── Gold gradient text ─────────────────── */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #C9A84C 0%, #E2C06A 50%, #9E7A1E 100%);
+/* ─────────────────── Text gradients ─────────────────── */
+.text-navy-gradient {
+  background: linear-gradient(135deg, #0F2B40 0%, #1A6FA8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
-/* ─────────────────── Emerald gradient → black & gold ─────────────────── */
-.bg-emerald-gradient {
-  background: linear-gradient(160deg, #080808 0%, #0d0d0d 50%, #111111 100%);
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B8860B 0%, #D4A842 50%, #9E7A1E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ─────────────────── Curtain wipe reveal ─────────────────── */
@@ -286,10 +340,14 @@ body {
   100% { clip-path: inset(0 0 0 0); }
 }
 
-/* ─────────────────── Gold horizontal line ─────────────────── */
+/* ─────────────────── Divider lines ─────────────────── */
+.sky-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #D8D5CE, transparent);
+}
 .gold-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+  background: linear-gradient(90deg, transparent, #B8860B, transparent);
 }
 
 /* ─────────────────── Image overlay section ─────────────────── */
@@ -304,16 +362,16 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  filter: brightness(0.35) saturate(0.8);
+  filter: brightness(0.7) saturate(0.9);
 }
 .img-bg-section > .img-bg-overlay {
   position: absolute;
   inset: 0;
   z-index: -1;
   background: linear-gradient(180deg,
-    rgba(7,9,13,0.6) 0%,
-    rgba(7,9,13,0.3) 50%,
-    rgba(7,9,13,0.7) 100%
+    rgba(243,241,237,0.35) 0%,
+    rgba(243,241,237,0.15) 50%,
+    rgba(243,241,237,0.35) 100%
   );
 }
 
@@ -323,4 +381,9 @@ body {
 }
 .embla__container {
   display: flex;
+}
+
+/* ─────────────────── bg-emerald-gradient compat ─────────────────── */
+.bg-emerald-gradient {
+  background: linear-gradient(160deg, #0F2B40 0%, #1A6FA8 50%, #0F3D5C 100%);
 }

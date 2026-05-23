@@ -33,7 +33,7 @@ export function SectionHeading({
           <p
             className={cn(
               "font-script text-2xl md:text-3xl",
-              isLight ? "text-gold" : "text-gold"
+              isLight ? "text-gold-light" : "text-sky-500"
             )}
           >
             {script}
@@ -43,8 +43,8 @@ export function SectionHeading({
       <FadeInView delay={0.2}>
         <h2
           className={cn(
-            "font-serif font-light text-3xl md:text-5xl leading-tight tracking-wide",
-            isLight ? "text-white" : "text-white"
+            "font-serif font-light text-4xl md:text-5xl lg:text-6xl leading-tight tracking-wide",
+            isLight ? "text-white" : "text-navy"
           )}
         >
           {title}
@@ -55,7 +55,7 @@ export function SectionHeading({
           <p
             className={cn(
               "text-sm md:text-base leading-relaxed max-w-2xl",
-              isLight ? "text-white/60" : "text-white/50 font-sans font-light"
+              isLight ? "text-white/70" : "text-slate font-sans font-light"
             )}
           >
             {subtitle}
@@ -66,7 +66,7 @@ export function SectionHeading({
         <div
           className={cn(
             "h-px w-16",
-            isLight ? "bg-gold" : "bg-gold"
+            isLight ? "bg-gold/60" : "bg-sky-200"
           )}
         />
       </FadeInView>
