@@ -15,27 +15,27 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants: Record<Variant, string> = {
   gold:
-    "bg-gold text-white hover:bg-gold-light border border-gold font-semibold",
+    "bg-gold text-white border border-gold font-semibold hover:bg-gold-light hover:border-gold-light hover:shadow-[0_8px_28px_rgba(184,134,11,0.35)] hover:-translate-y-px active:translate-y-0",
   emerald:
-    "bg-sky-700 text-white hover:bg-sky-500 border border-sky-700 font-semibold",
+    "bg-sky-700 text-white border border-sky-700 font-semibold hover:bg-sky-500 hover:border-sky-500 hover:shadow-[0_8px_28px_rgba(26,111,168,0.40)] hover:-translate-y-px active:translate-y-0",
   sky:
-    "bg-sky-700 text-white hover:bg-sky-500 border border-sky-700 font-semibold",
+    "bg-sky-700 text-white border border-sky-700 font-semibold hover:bg-sky-500 hover:border-sky-500 hover:shadow-[0_8px_28px_rgba(26,111,168,0.40)] hover:-translate-y-px active:translate-y-0",
   navy:
-    "bg-navy text-white hover:bg-navy/80 border border-navy font-semibold",
+    "bg-navy text-white border border-navy font-semibold hover:bg-navy/85 hover:shadow-[0_8px_28px_rgba(15,43,64,0.40)] hover:-translate-y-px active:translate-y-0",
   "ghost-white":
-    "bg-transparent text-white hover:bg-white/10 border border-white/60 font-medium",
+    "bg-transparent text-white border border-white/60 font-medium hover:bg-white/12 hover:border-white hover:-translate-y-px active:translate-y-0",
   "ghost-sky":
-    "bg-transparent text-sky-700 hover:bg-sky-50 border border-sky-500 font-medium",
+    "bg-transparent text-sky-700 border border-sky-500 font-medium hover:bg-sky-700 hover:text-white hover:border-sky-700 hover:-translate-y-px active:translate-y-0",
   "ghost-emerald":
-    "bg-transparent text-sky-700 hover:bg-sky-50 border border-sky-500 font-medium",
+    "bg-transparent text-sky-700 border border-sky-500 font-medium hover:bg-sky-700 hover:text-white hover:border-sky-700 hover:-translate-y-px active:translate-y-0",
   outline:
-    "bg-transparent text-navy hover:bg-navy hover:text-white border border-navy font-medium",
+    "bg-transparent text-navy border border-navy font-medium hover:bg-navy hover:text-white hover:-translate-y-px active:translate-y-0",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "px-5 py-2 text-sm tracking-wide",
-  md: "px-8 py-3 text-sm tracking-widest",
-  lg: "px-10 py-4 text-base tracking-widest",
+  sm: "px-5 py-2.5 text-[11px] tracking-[0.2em]",
+  md: "px-8 py-3.5 text-[11px] tracking-[0.25em]",
+  lg: "px-12 py-4.5 text-[11px] tracking-[0.28em]",
 };
 
 export function Button({

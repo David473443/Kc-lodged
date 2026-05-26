@@ -3,16 +3,16 @@
 @theme inline {
   /* ── Warm stone-gray palette ── */
   --color-stone-50:  #F8F7F4;
-  --color-stone-100: #F3F1ED;
-  --color-stone-200: #EAE8E3;
-  --color-stone-300: #D8D5CE;
-  --color-stone-400: #B4B0A7;
+  --color-stone-100: #F0EDE8;
+  --color-stone-200: #E4E0D9;
+  --color-stone-300: #CCC8C0;
+  --color-stone-400: #A8A49C;
   --color-stone-500: #8A867D;
 
   /* Sky-blue kept for accents only (buttons, icons, underlines) */
-  --color-sky-50:   #F3F1ED;
-  --color-sky-100:  #EAE8E3;
-  --color-sky-200:  #D8D5CE;
+  --color-sky-50:   #F0EDE8;
+  --color-sky-100:  #E4E0D9;
+  --color-sky-200:  #CCC8C0;
   --color-sky-300:  #7EC5EB;
   --color-sky-500:  #4A9FC8;
   --color-sky-700:  #1A6FA8;
@@ -20,8 +20,8 @@
 
   --color-navy:     #0F2B40;
   --color-slate:    #3A3A3A;
-  --color-grey-100: #F3F1ED;
-  --color-grey-200: #D8D5CE;
+  --color-grey-100: #F0EDE8;
+  --color-grey-200: #CCC8C0;
   --color-grey-400: #8A867D;
   --color-cream:    #F8F7F4;
 
@@ -33,24 +33,24 @@
   /* Legacy compatibility aliases */
   --color-obsidian:      #0F2B40;
   --color-void:          #0F2B40;
-  --color-surface:       #F3F1ED;
-  --color-surface-2:     #EAE8E3;
-  --color-surface-3:     #D8D5CE;
+  --color-surface:       #F0EDE8;
+  --color-surface-2:     #E4E0D9;
+  --color-surface-3:     #CCC8C0;
   --color-ivory:         #F8F7F4;
-  --color-ivory-50:      #F3F1ED;
+  --color-ivory-50:      #F0EDE8;
   --color-ivory-100:     #F8F7F4;
-  --color-ivory-200:     #EAE8E3;
+  --color-ivory-200:     #E4E0D9;
   --color-emerald:       #1A6FA8;
   --color-emerald-dark:  #0F3D5C;
   --color-emerald-deep:  #0F2B40;
   --color-emerald-mid:   #1A6FA8;
   --color-emerald-light: #4A9FC8;
-  --color-emerald-pale:  #D8D5CE;
-  --color-emerald-50:    #EAE8E3;
+  --color-emerald-pale:  #CCC8C0;
+  --color-emerald-50:    #E4E0D9;
   --color-charcoal:      #3A3A3A;
   --color-muted:         #8A867D;
 
-  /* ── Fonts (Next.js overrides these with actual loaded font on html element) ── */
+  /* ── Fonts ── */
   --font-serif:   "Cormorant Garamond", "Didot", "Bodoni MT", Georgia, serif;
   --font-sans:    "Source Sans 3", system-ui, sans-serif;
   --font-script:  "Great Vibes", cursive;
@@ -132,20 +132,27 @@
 
 /* ─────────────────── Base ─────────────────── */
 :root {
-  --background: #F3F1ED;
+  --background: #DDD9D2;
   --foreground: #1A1A18;
+
+  /* Elevation system */
+  --shadow-xs:    0 1px 4px rgba(15,43,64,0.07);
+  --shadow-sm:    0 3px 12px rgba(15,43,64,0.09);
+  --shadow-md:    0 8px 32px rgba(15,43,64,0.12);
+  --shadow-lg:    0 20px 60px rgba(15,43,64,0.15);
+  --shadow-xl:    0 32px 80px rgba(15,43,64,0.18);
+  --shadow-hover: 0 28px 72px rgba(15,43,64,0.18), 0 0 48px rgba(26,111,168,0.07);
 }
 
 html {
   scroll-behavior: smooth;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 body {
-  background-color: #E2DFD9;
-  /* Warm linen-paper texture overlay */
+  background-color: #DDD9D2;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.07'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
   color: #1A1A18;
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -153,10 +160,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Stone-gray scrollbar */
-::-webkit-scrollbar        { width: 4px; }
-::-webkit-scrollbar-track  { background: #F3F1ED; }
-::-webkit-scrollbar-thumb  { background: linear-gradient(180deg, #1A6FA8 0%, #8A867D 100%); border-radius: 4px; }
+/* Refined scrollbar */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: #DDD9D2; }
+::-webkit-scrollbar-thumb  { background: linear-gradient(180deg, #1A6FA8 0%, #CCC8C0 100%); border-radius: 3px; }
 
 /* Focus */
 *:focus-visible {
@@ -166,37 +173,38 @@ body {
 
 /* ─────────────────── Section spacing ─────────────────── */
 .section-padding {
-  padding-top: 7rem;
-  padding-bottom: 7rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 @media (min-width: 1024px) {
   .section-padding {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+    padding-top: 11rem;
+    padding-bottom: 11rem;
   }
 }
 
-/* ─────────────────── Stone-gray content panels ─────────────────── */
+/* ─────────────────── Solid-gray content panels ─────────────────── */
 .light-panel {
-  background: rgba(243,241,237,0.90);
+  background: #E8E4DD;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
 .cream-panel {
-  background: rgba(248,247,244,0.92);
+  background: #EDEBE5;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 .sky-panel {
-  background: rgba(243,241,237,0.88);
+  background: rgba(228,224,217,0.92);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
 .content-panel {
-  background: rgba(243,241,237,0.85);
+  background: rgba(228,224,217,0.90);
   backdrop-filter: blur(16px) saturate(120%);
   -webkit-backdrop-filter: blur(16px) saturate(120%);
-  border: 1px solid rgba(216,213,206,0.5);
+  border: 1px solid rgba(204,200,192,0.55);
+  box-shadow: var(--shadow-sm);
 }
 
 /* ─────────────────── Parallax image section ─────────────────── */
@@ -223,10 +231,11 @@ body {
 
 /* ─────────────────── Glass card ─────────────────── */
 .glass-card {
-  background: rgba(248,247,244,0.82);
+  background: rgba(237,235,229,0.88);
   backdrop-filter: blur(16px) saturate(120%);
   -webkit-backdrop-filter: blur(16px) saturate(120%);
-  border: 1px solid rgba(216,213,206,0.6);
+  border: 1px solid rgba(204,200,192,0.65);
+  box-shadow: var(--shadow-md);
   position: relative;
   overflow: hidden;
 }
@@ -236,12 +245,12 @@ body {
   top: 0; left: -80%;
   width: 60%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
   animation: glassSheen 6s ease-in-out infinite;
   pointer-events: none;
 }
 
-/* ─────────────────── Sky underline hover (accent) ─────────────────── */
+/* ─────────────────── Sky underline hover ─────────────────── */
 .sky-underline {
   position: relative;
 }
@@ -313,11 +322,12 @@ body {
 
 /* ─────────────────── Luxury card ─────────────────── */
 .luxury-card {
-  transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), box-shadow 0.6s ease;
+  transition: transform 0.65s cubic-bezier(0.22,1,0.36,1), box-shadow 0.65s ease;
+  box-shadow: var(--shadow-sm);
 }
 .luxury-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 40px 80px rgba(15,43,64,0.12), 0 0 40px rgba(26,111,168,0.06);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
 }
 
 /* ─────────────────── Text gradients ─────────────────── */
@@ -343,7 +353,7 @@ body {
 /* ─────────────────── Divider lines ─────────────────── */
 .sky-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, #D8D5CE, transparent);
+  background: linear-gradient(90deg, transparent, #CCC8C0, transparent);
 }
 .gold-line {
   height: 1px;
@@ -369,9 +379,9 @@ body {
   inset: 0;
   z-index: -1;
   background: linear-gradient(180deg,
-    rgba(243,241,237,0.35) 0%,
-    rgba(243,241,237,0.15) 50%,
-    rgba(243,241,237,0.35) 100%
+    rgba(237,235,229,0.35) 0%,
+    rgba(237,235,229,0.15) 50%,
+    rgba(237,235,229,0.35) 100%
   );
 }
 

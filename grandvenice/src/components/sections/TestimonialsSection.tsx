@@ -69,7 +69,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
   return (
     <section
       id="testimonials"
-      className="relative z-10 bg-stone-200/75 backdrop-blur-sm overflow-hidden"
+      className="relative z-10 bg-stone-300/55 backdrop-blur-sm overflow-hidden"
     >
       {/* Soft sky radial glow */}
       <div
@@ -79,7 +79,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 lg:py-32">
 
         <FadeInView direction="up">
           <SectionHeading script="Guest Reviews" title="What Our Guests Say" variant="dark" />
@@ -121,7 +121,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                       </div>
 
                       {/* Comment */}
-                      <blockquote className="font-serif text-navy text-xl md:text-2xl lg:text-3xl font-light italic leading-[1.6] mb-10 max-w-3xl mx-auto">
+                      <blockquote className="font-serif text-navy text-2xl md:text-3xl lg:text-[38px] font-light italic leading-[1.55] mb-10 max-w-3xl mx-auto">
                         &ldquo;{t.comment}&rdquo;
                       </blockquote>
 
@@ -156,7 +156,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
               <button
                 onClick={scrollPrev}
                 aria-label="Previous"
-                className="w-11 h-11 border border-sky-200 text-slate hover:border-sky-500 hover:text-sky-700 flex items-center justify-center transition-all duration-300"
+                className="w-12 h-12 border border-stone-300 text-slate hover:border-sky-500 hover:text-sky-700 hover:bg-sky-50/50 flex items-center justify-center transition-all duration-300 shadow-[var(--shadow-xs)]"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -180,7 +180,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
               <button
                 onClick={scrollNext}
                 aria-label="Next"
-                className="w-11 h-11 border border-sky-200 text-slate hover:border-sky-500 hover:text-sky-700 flex items-center justify-center transition-all duration-300"
+                className="w-12 h-12 border border-stone-300 text-slate hover:border-sky-500 hover:text-sky-700 hover:bg-sky-50/50 flex items-center justify-center transition-all duration-300 shadow-[var(--shadow-xs)]"
               >
                 <ChevronRight size={18} />
               </button>
