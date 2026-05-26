@@ -20,7 +20,7 @@ export function DiningSection() {
 
   return (
     <section id="dining" ref={sectionRef} className="relative z-10 overflow-hidden">
-      <div className="bg-stone-100/90 backdrop-blur-sm">
+      <div className="bg-stone-200/92 backdrop-blur-sm">
 
         {/* ── Content ── */}
         <div className="max-w-7xl mx-auto px-6 py-20 lg:py-28">
@@ -55,7 +55,7 @@ export function DiningSection() {
 
               {/* Opening hours */}
               <FadeInView delay={0.4}>
-                <div className="border border-stone-300 p-6 mb-8 bg-stone-200/50">
+                <div className="border border-stone-400/60 p-6 mb-8 bg-stone-300/50">
                   <p className="text-sky-600 text-[10px] tracking-[0.3em] uppercase mb-5 font-sans">
                     Opening Hours
                   </p>

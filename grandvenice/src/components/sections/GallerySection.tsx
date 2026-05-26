@@ -260,7 +260,7 @@ export function GallerySection({ items }: GallerySectionProps) {
   }
 
   return (
-    <section id="gallery" className="relative z-10 bg-stone-100/88 backdrop-blur-sm section-padding">
+    <section id="gallery" className="relative z-10 bg-stone-200/92 backdrop-blur-sm section-padding">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           script="Visual Journey"

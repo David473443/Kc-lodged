@@ -32,7 +32,7 @@ export function RoomCard({ room }: RoomCardProps) {
     || "https://a.otcdn.com/imglib/roomphotos/1/8/393/grandvenice-hotel-and-suites-port-harcourt-20240410141604636900.jpg";
 
   return (
-    <div className="luxury-card group relative flex flex-col overflow-hidden bg-stone-100 border border-stone-300 hover:border-stone-400 transition-colors duration-500">
+    <div className="luxury-card group relative flex flex-col overflow-hidden bg-stone-200 border border-stone-300 hover:border-stone-400 transition-colors duration-500">
 
       {/* ── Image ── */}
       <div className="relative h-[280px] overflow-hidden flex-shrink-0">
@@ -109,7 +109,7 @@ export function RoomCard({ room }: RoomCardProps) {
           </p>
         )}
 
-        <div className="flex items-center justify-between pt-4 border-t border-stone-300 mt-auto">
+        <div className="flex items-center justify-between pt-4 border-t border-stone-400/60 mt-auto">
           <Link
             href={`/booking?roomId=${room._id}&room=${encodeURIComponent(room.name)}&price=${room.pricePerNight}`}
             className="text-[10px] tracking-[0.25em] uppercase text-sky-700 font-sans font-medium border-b border-sky-300 hover:border-sky-600 transition-all duration-300 pb-0.5"

@@ -29,7 +29,7 @@ export function AboutSection({ hotelInfo }: AboutSectionProps) {
 
   return (
     <section id="about" ref={sectionRef} className="relative z-10 overflow-hidden">
-      <div className="bg-stone-100/90 backdrop-blur-sm">
+      <div className="bg-stone-200/92 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 py-20 lg:py-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch min-h-[680px]">
 
@@ -55,7 +55,7 @@ export function AboutSection({ hotelInfo }: AboutSectionProps) {
                 <div className="absolute bottom-3 right-3 w-8 h-8 border-b border-r border-navy/40 z-10" />
 
                 {/* Heritage badge */}
-                <div className="absolute bottom-10 left-6 z-20 bg-stone-50/95 backdrop-blur-sm p-5 border border-stone-300">
+                <div className="absolute bottom-10 left-6 z-20 bg-stone-200/95 backdrop-blur-sm p-5 border border-stone-400/60">
                   <p className="font-script text-sky-700 text-2xl leading-none mb-1">Since 2014</p>
                   <div className="h-px w-full bg-sky-200 my-2" />
                   <p className="text-slate text-[10px] tracking-[0.3em] uppercase">
@@ -105,7 +105,7 @@ export function AboutSection({ hotelInfo }: AboutSectionProps) {
               </FadeInView>
 
               <FadeInView delay={0.5}>
-                <div className="grid grid-cols-2 gap-x-6 gap-y-5 mb-10 p-6 bg-stone-200/60 border border-stone-300">
+                <div className="grid grid-cols-2 gap-x-6 gap-y-5 mb-10 p-6 bg-stone-300/50 border border-stone-400/50">
                   {details.map((d) => (
                     <div key={d.label} className="flex items-start gap-3">
                       <div className="w-px h-10 bg-sky-400 flex-shrink-0 mt-1" />
