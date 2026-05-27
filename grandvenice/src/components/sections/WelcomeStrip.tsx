@@ -27,11 +27,11 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
   return (
     <div
       ref={ref}
-      className="relative flex flex-col items-center py-14 px-6 text-center group overflow-hidden bg-stone-100/80 backdrop-blur-sm"
+      className="relative flex flex-col items-center py-16 px-6 text-center group overflow-hidden bg-[#0E0C0A]"
     >
-      {/* Sky-blue top bar */}
+      {/* Gold top bar — grows in */}
       <motion.div
-        className="absolute top-0 left-0 right-0 h-px bg-sky-200"
+        className="absolute top-0 left-0 right-0 h-[2px] bg-[#C9A64A]"
         style={{ transformOrigin: "left" }}
         initial={{ scaleX: 0 }}
         animate={inView ? { scaleX: 1 } : {}}
@@ -39,21 +39,24 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
       />
 
       {/* Number */}
-      <div className="overflow-hidden mb-1">
+      <div className="overflow-hidden mb-2">
         <motion.div
           initial={{ y: "110%" }}
           animate={inView ? { y: 0 } : {}}
           transition={{ duration: 0.85, delay: index * 0.1 + 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="font-serif text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] font-light text-navy leading-none tracking-tight">
+          <span
+            className="font-serif font-extralight text-[#C9A64A] leading-none tracking-tight"
+            style={{ fontSize: "clamp(3.5rem, 7vw, 6rem)" }}
+          >
             <AnimatedCounter target={stat.value} suffix={stat.suffix} duration={1800} />
           </span>
         </motion.div>
       </div>
 
-      {/* Sky-blue thin separator */}
+      {/* Thin separator */}
       <motion.div
-        className="h-px w-10 bg-sky-300 mb-4"
+        className="h-px w-8 bg-[#C9A64A]/50 mb-5"
         initial={{ opacity: 0, scaleX: 0 }}
         animate={inView ? { opacity: 1, scaleX: 1 } : {}}
         transition={{ duration: 0.6, delay: index * 0.1 + 0.5 }}
@@ -65,14 +68,14 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: index * 0.1 + 0.55, ease: "easeOut" }}
       >
-        <p className="text-sky-700 text-[9px] tracking-[0.35em] uppercase font-sans font-medium mb-1.5">
+        <p className="text-[#E8D4A2] text-[10px] tracking-[0.35em] uppercase font-sans font-semibold mb-2">
           {stat.label}
         </p>
-        <p className="text-grey-400 text-[9px] tracking-[0.2em] font-sans">{stat.sub}</p>
+        <p className="text-[#8C8480] text-[10px] tracking-[0.2em] font-sans">{stat.sub}</p>
       </motion.div>
 
-      {/* Hover sky-blue glow */}
-      <div className="absolute inset-0 bg-stone-300/0 group-hover:bg-stone-300/30 transition-colors duration-700" />
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-[#C9A64A]/0 group-hover:bg-[#C9A64A]/4 transition-colors duration-700" />
     </div>
   );
 }
@@ -80,26 +83,26 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
 export function WelcomeStrip() {
   return (
     <div className="relative z-10">
-      {/* ── Sky-blue heritage marquee ticker ── */}
-      <div className="bg-sky-700 py-2.5 overflow-hidden relative">
+      {/* ── Heritage marquee ticker — obsidian bg with gold text ── */}
+      <div className="bg-[#080806] border-y border-[#C9A64A]/20 py-3 overflow-hidden relative">
         <div className="marquee-wrapper">
           <div className="marquee-inner flex-shrink-0">
             {[...marqueeItems, ...marqueeItems].map((item, i) => (
-              <span key={i} className="flex items-center gap-5 mr-5">
-                <span className="text-white text-[10px] tracking-[0.3em] uppercase font-sans font-semibold whitespace-nowrap">
+              <span key={i} className="flex items-center gap-6 mr-6">
+                <span className="text-[#E8D4A2] text-[10px] tracking-[0.35em] uppercase font-sans font-semibold whitespace-nowrap">
                   {item}
                 </span>
-                <span className="text-white/40 text-[8px]">◆</span>
+                <span className="text-[#C9A64A]/50 text-[8px]">◆</span>
               </span>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ── Stats — light panels ── */}
-      <section className="bg-stone-200/50">
+      {/* ── Stats ── */}
+      <section className="bg-[#0E0C0A]">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-stone-300 divide-y lg:divide-y-0">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#2A2520] divide-y lg:divide-y-0 border-b border-[#2A2520]">
             {stats.map((stat, i) => (
               <StatCard key={stat.label} stat={stat} index={i} />
             ))}

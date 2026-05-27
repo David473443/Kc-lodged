@@ -1,7 +1,18 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-type Variant = "gold" | "emerald" | "sky" | "navy" | "ghost-white" | "ghost-sky" | "ghost-emerald" | "outline";
+type Variant =
+  | "gold"
+  | "gold-outline"
+  | "ivory"
+  | "dark"
+  | "emerald"
+  | "sky"
+  | "navy"
+  | "ghost-white"
+  | "ghost-sky"
+  | "ghost-emerald"
+  | "outline";
 type Size = "sm" | "md" | "lg";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,32 +25,43 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variants: Record<Variant, string> = {
+  /** Primary: antique gold fill — on dark backgrounds */
   gold:
-    "bg-gold text-white hover:bg-gold-light border border-gold font-semibold",
+    "bg-[#C9A64A] text-[#0E0C0A] border border-[#C9A64A] font-semibold hover:bg-[#E8D4A2] hover:border-[#E8D4A2] hover:shadow-[0_8px_32px_rgba(201,166,74,0.40)] hover:-translate-y-px active:translate-y-0",
+  /** Outline gold — on dark backgrounds */
+  "gold-outline":
+    "bg-transparent text-[#C9A64A] border border-[#C9A64A] font-medium hover:bg-[#C9A64A] hover:text-[#0E0C0A] hover:shadow-[0_8px_32px_rgba(201,166,74,0.30)] hover:-translate-y-px active:translate-y-0",
+  /** Ghost ivory — on dark backgrounds */
+  ivory:
+    "bg-transparent text-[#F7F3EC] border border-[#F7F3EC]/50 font-medium hover:bg-[#F7F3EC]/10 hover:border-[#F7F3EC] hover:-translate-y-px active:translate-y-0",
+  /** Dark fill — on ivory/light backgrounds */
+  dark:
+    "bg-[#141210] text-[#E8E3DB] border border-[#141210] font-semibold hover:bg-[#1E1A17] hover:shadow-[0_8px_28px_rgba(0,0,0,0.40)] hover:-translate-y-px active:translate-y-0",
+  /** Legacy aliases → gold */
   emerald:
-    "bg-sky-700 text-white hover:bg-sky-500 border border-sky-700 font-semibold",
+    "bg-[#C9A64A] text-[#0E0C0A] border border-[#C9A64A] font-semibold hover:bg-[#E8D4A2] hover:border-[#E8D4A2] hover:shadow-[0_8px_32px_rgba(201,166,74,0.40)] hover:-translate-y-px active:translate-y-0",
   sky:
-    "bg-sky-700 text-white hover:bg-sky-500 border border-sky-700 font-semibold",
+    "bg-[#C9A64A] text-[#0E0C0A] border border-[#C9A64A] font-semibold hover:bg-[#E8D4A2] hover:border-[#E8D4A2] hover:shadow-[0_8px_32px_rgba(201,166,74,0.40)] hover:-translate-y-px active:translate-y-0",
   navy:
-    "bg-navy text-white hover:bg-navy/80 border border-navy font-semibold",
+    "bg-[#060C18] text-[#E8E3DB] border border-[#060C18] font-semibold hover:bg-[#0E0C0A] hover:shadow-[0_8px_28px_rgba(0,0,0,0.45)] hover:-translate-y-px active:translate-y-0",
   "ghost-white":
-    "bg-transparent text-white hover:bg-white/10 border border-white/60 font-medium",
+    "bg-transparent text-white border border-white/60 font-medium hover:bg-white/12 hover:border-white hover:-translate-y-px active:translate-y-0",
   "ghost-sky":
-    "bg-transparent text-sky-700 hover:bg-sky-50 border border-sky-500 font-medium",
+    "bg-transparent text-[#C9A64A] border border-[#C9A64A] font-medium hover:bg-[#C9A64A] hover:text-[#0E0C0A] hover:border-[#C9A64A] hover:-translate-y-px active:translate-y-0",
   "ghost-emerald":
-    "bg-transparent text-sky-700 hover:bg-sky-50 border border-sky-500 font-medium",
+    "bg-transparent text-[#C9A64A] border border-[#C9A64A] font-medium hover:bg-[#C9A64A] hover:text-[#0E0C0A] hover:border-[#C9A64A] hover:-translate-y-px active:translate-y-0",
   outline:
-    "bg-transparent text-navy hover:bg-navy hover:text-white border border-navy font-medium",
+    "bg-transparent text-[#1A1614] border border-[#1A1614] font-medium hover:bg-[#1A1614] hover:text-[#F7F3EC] hover:-translate-y-px active:translate-y-0",
 };
 
 const sizes: Record<Size, string> = {
-  sm: "px-5 py-2 text-sm tracking-wide",
-  md: "px-8 py-3 text-sm tracking-widest",
-  lg: "px-10 py-4 text-base tracking-widest",
+  sm: "px-5 py-2.5 text-[11px] tracking-[0.2em]",
+  md: "px-8 py-3.5 text-[11px] tracking-[0.25em]",
+  lg: "px-12 py-4.5 text-[11px] tracking-[0.28em]",
 };
 
 export function Button({
-  variant = "sky",
+  variant = "gold",
   size = "md",
   href,
   external,

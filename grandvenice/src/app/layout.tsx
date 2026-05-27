@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Source_Sans_3, Great_Vibes } from "next/font/google";
+import { Cormorant_Garamond, Raleway, Great_Vibes } from "next/font/google";
 import "./globals.css";
 import { SmoothScrollProvider } from "@/components/layout/SmoothScrollProvider";
 import { Navbar } from "@/components/layout/Navbar";
@@ -14,7 +14,7 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
-const sourceSans = Source_Sans_3({
+const raleway = Raleway({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -80,9 +80,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${sourceSans.variable} ${greatVibes.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${raleway.variable} ${greatVibes.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-sky-50 text-navy flex flex-col">
+      <body className="min-h-full bg-obsidian text-text-dark flex flex-col">
         <SmoothScrollProvider>
           <ScrollImageBackdrop />
           <Navbar />

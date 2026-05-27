@@ -69,17 +69,17 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
   return (
     <section
       id="testimonials"
-      className="relative z-10 bg-stone-200/75 backdrop-blur-sm overflow-hidden"
+      className="relative z-10 bg-[#F7F3EC] overflow-hidden"
     >
-      {/* Soft sky radial glow */}
+      {/* Soft gold radial glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(74,159,200,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(26,111,168,0.05) 0%, transparent 50%)",
+          backgroundImage: "radial-gradient(ellipse at 20% 50%, rgba(201,166,74,0.05) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(155,122,35,0.04) 0%, transparent 50%)",
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 lg:py-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 lg:py-32">
 
         <FadeInView direction="up">
           <SectionHeading script="Guest Reviews" title="What Our Guests Say" variant="dark" />
@@ -88,10 +88,10 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
         <FadeInView direction="up" delay={0.2}>
           <div className="relative max-w-4xl mx-auto">
 
-            {/* Decorative quote mark */}
+            {/* Decorative quote mark — gold tint */}
             <div
               className="absolute -top-8 left-0 font-serif text-[160px] leading-none select-none pointer-events-none hidden lg:block"
-              style={{ color: "rgba(74,159,200,0.10)" }}
+              style={{ color: "rgba(201,166,74,0.12)" }}
             >
               &ldquo;
             </div>
@@ -111,8 +111,8 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                           <svg
                             key={i}
                             width="16" height="16" viewBox="0 0 24 24"
-                            fill={i < t.rating ? "#B8860B" : "none"}
-                            stroke="#B8860B" strokeWidth="1.5"
+                            fill={i < t.rating ? "#C9A64A" : "none"}
+                            stroke="#C9A64A" strokeWidth="1.5"
                             className="transition-colors"
                           >
                             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
@@ -121,27 +121,27 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                       </div>
 
                       {/* Comment */}
-                      <blockquote className="font-serif text-navy text-xl md:text-2xl lg:text-3xl font-light italic leading-[1.6] mb-10 max-w-3xl mx-auto">
+                      <blockquote className="font-serif text-[#1A1614] text-2xl md:text-3xl lg:text-[38px] font-light italic leading-[1.55] mb-10 max-w-3xl mx-auto">
                         &ldquo;{t.comment}&rdquo;
                       </blockquote>
 
-                      {/* Sky divider */}
+                      {/* Gold divider */}
                       <div className="flex items-center justify-center gap-4 mb-6">
-                        <div className="h-px w-12 bg-sky-200" />
-                        <div className="w-1.5 h-1.5 rotate-45 bg-sky-400" />
-                        <div className="h-px w-12 bg-sky-200" />
+                        <div className="h-px w-12 bg-[#C9A64A]/40" />
+                        <div className="w-1.5 h-1.5 rotate-45 bg-[#C9A64A]" />
+                        <div className="h-px w-12 bg-[#C9A64A]/40" />
                       </div>
 
                       {/* Attribution */}
-                      <p className="font-serif text-navy text-lg font-light">{t.guestName}</p>
+                      <p className="font-serif text-[#1A1614] text-lg font-light">{t.guestName}</p>
                       <div className="flex items-center justify-center gap-3 mt-1.5">
                         {t.guestLocation && (
-                          <span className="text-slate text-[10px] tracking-wider">{t.guestLocation}</span>
+                          <span className="text-[#5C5450] text-[10px] tracking-wider">{t.guestLocation}</span>
                         )}
                         {t.platform && (
                           <>
-                            <span className="text-grey-400 text-[10px]">·</span>
-                            <span className="text-sky-600 text-[10px] tracking-widest uppercase">{t.platform}</span>
+                            <span className="text-[#8C8480] text-[10px]">·</span>
+                            <span className="text-[#9B7A23] text-[10px] tracking-widest uppercase">{t.platform}</span>
                           </>
                         )}
                       </div>
@@ -156,7 +156,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
               <button
                 onClick={scrollPrev}
                 aria-label="Previous"
-                className="w-11 h-11 border border-sky-200 text-slate hover:border-sky-500 hover:text-sky-700 flex items-center justify-center transition-all duration-300"
+                className="w-12 h-12 border border-[#EDE8DF] text-[#5C5450] hover:border-[#C9A64A] hover:text-[#9B7A23] hover:bg-[#C9A64A]/5 flex items-center justify-center transition-all duration-300 shadow-[var(--shadow-xs)]"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -170,8 +170,8 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
                     aria-label={`Go to slide ${i + 1}`}
                     className={`transition-all duration-300 rounded-full ${
                       i === selectedIndex
-                        ? "bg-sky-600 w-6 h-1.5"
-                        : "bg-sky-200 w-1.5 h-1.5 hover:bg-sky-300"
+                        ? "bg-[#C9A64A] w-6 h-1.5"
+                        : "bg-[#EDE8DF] w-1.5 h-1.5 hover:bg-[#D4B97A]"
                     }`}
                   />
                 ))}
@@ -180,7 +180,7 @@ export function TestimonialsSection({ testimonials }: TestimonialsSectionProps) 
               <button
                 onClick={scrollNext}
                 aria-label="Next"
-                className="w-11 h-11 border border-sky-200 text-slate hover:border-sky-500 hover:text-sky-700 flex items-center justify-center transition-all duration-300"
+                className="w-12 h-12 border border-[#EDE8DF] text-[#5C5450] hover:border-[#C9A64A] hover:text-[#9B7A23] hover:bg-[#C9A64A]/5 flex items-center justify-center transition-all duration-300 shadow-[var(--shadow-xs)]"
               >
                 <ChevronRight size={18} />
               </button>

@@ -5,11 +5,15 @@ import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
-function SkyDivider({ wide }: { wide?: boolean }) {
+function GoldDivider({ wide }: { wide?: boolean }) {
   return (
     <div
       className={`h-px my-8 ${wide ? "w-full" : "w-16"}`}
-      style={{ background: wide ? "linear-gradient(90deg, transparent, rgba(184,220,243,0.5), transparent)" : "#B8DCF3" }}
+      style={{
+        background: wide
+          ? "linear-gradient(90deg, transparent, rgba(201,166,74,0.45), transparent)"
+          : "#C9A64A",
+      }}
     />
   );
 }
@@ -35,16 +39,17 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-navy text-white relative z-10">
+    <footer className="bg-[#080806] text-[#E8E3DB] relative z-10">
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+
           {/* Brand */}
           <div className="lg:col-span-1">
-            <h3 className="font-serif text-2xl tracking-widest mb-1">GrandVenice</h3>
-            <p className="text-gold text-xs tracking-[0.3em] uppercase mb-5">
-              Hotel & Suites
+            <h3 className="font-serif text-2xl tracking-widest text-[#F7F3EC] mb-1">GrandVenice</h3>
+            <p className="text-[#C9A64A] text-xs tracking-[0.3em] uppercase mb-5">
+              Hotel &amp; Suites
             </p>
-            <p className="text-white/60 text-sm leading-relaxed mb-6">
+            <p className="text-[#E8E3DB]/50 text-sm leading-relaxed mb-6">
               Port Harcourt&apos;s premier luxury destination. Offering
               outstanding service and comfort with the personal touch.
             </p>
@@ -53,7 +58,7 @@ export function Footer() {
                 href="https://facebook.com/grandveniceportharcourt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 border border-white/20 flex items-center justify-center hover:border-sky-300 hover:text-sky-300 transition-colors"
+                className="w-9 h-9 border border-[#F7F3EC]/12 flex items-center justify-center hover:border-[#C9A64A] hover:text-[#C9A64A] transition-colors"
                 aria-label="Facebook"
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -62,7 +67,7 @@ export function Footer() {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 border border-white/20 flex items-center justify-center hover:border-sky-300 hover:text-sky-300 transition-colors"
+                className="w-9 h-9 border border-[#F7F3EC]/12 flex items-center justify-center hover:border-[#C9A64A] hover:text-[#C9A64A] transition-colors"
                 aria-label="Instagram"
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -71,7 +76,7 @@ export function Footer() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 border border-white/20 flex items-center justify-center hover:border-sky-300 hover:text-sky-300 transition-colors"
+                className="w-9 h-9 border border-[#F7F3EC]/12 flex items-center justify-center hover:border-[#C9A64A] hover:text-[#C9A64A] transition-colors"
                 aria-label="YouTube"
               >
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
@@ -81,7 +86,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-sky-300 text-xs tracking-[0.25em] uppercase mb-5">
+            <h4 className="text-[#C9A64A] text-xs tracking-[0.25em] uppercase mb-5">
               Quick Links
             </h4>
             <ul className="space-y-3">
@@ -95,7 +100,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-white/60 hover:text-sky-300 text-sm transition-colors"
+                    className="text-[#E8E3DB]/50 hover:text-[#C9A64A] text-sm transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -106,32 +111,32 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-sky-300 text-xs tracking-[0.25em] uppercase mb-5">
+            <h4 className="text-[#C9A64A] text-xs tracking-[0.25em] uppercase mb-5">
               Contact
             </h4>
             <ul className="space-y-4">
               <li className="flex gap-3">
-                <MapPin size={16} className="text-sky-300 mt-0.5 flex-shrink-0" />
-                <p className="text-white/60 text-sm leading-relaxed">
+                <MapPin size={16} className="text-[#C9A64A] mt-0.5 flex-shrink-0" />
+                <p className="text-[#E8E3DB]/50 text-sm leading-relaxed">
                   Plot 19, Igwe Family Layout Rumuogba,<br />
                   Off Ecobank, Port Harcourt,<br />
                   Rivers State, Nigeria
                 </p>
               </li>
               <li className="flex gap-3 items-center">
-                <Phone size={16} className="text-sky-300 flex-shrink-0" />
+                <Phone size={16} className="text-[#C9A64A] flex-shrink-0" />
                 <a
                   href="tel:+2347039350238"
-                  className="text-white/60 hover:text-sky-300 text-sm transition-colors"
+                  className="text-[#E8E3DB]/50 hover:text-[#C9A64A] text-sm transition-colors"
                 >
                   +234-703-935-0238
                 </a>
               </li>
               <li className="flex gap-3 items-center">
-                <Mail size={16} className="text-sky-300 flex-shrink-0" />
+                <Mail size={16} className="text-[#C9A64A] flex-shrink-0" />
                 <a
                   href="mailto:reservation@grandvenicenigeria.com"
-                  className="text-white/60 hover:text-sky-300 text-sm transition-colors"
+                  className="text-[#E8E3DB]/50 hover:text-[#C9A64A] text-sm transition-colors"
                 >
                   reservation@grandvenicenigeria.com
                 </a>
@@ -141,14 +146,14 @@ export function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-sky-300 text-xs tracking-[0.25em] uppercase mb-5">
+            <h4 className="text-[#C9A64A] text-xs tracking-[0.25em] uppercase mb-5">
               Stay Updated
             </h4>
-            <p className="text-white/60 text-sm mb-4">
+            <p className="text-[#E8E3DB]/50 text-sm mb-4">
               Subscribe for exclusive offers and luxury travel updates.
             </p>
             {subscribed ? (
-              <p className="text-sky-300 text-sm">
+              <p className="text-[#C9A64A] text-sm">
                 ✓ Thank you for subscribing!
               </p>
             ) : (
@@ -159,11 +164,11 @@ export function Footer() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email address"
                   required
-                  className="w-full bg-white/5 border border-sky-700/50 px-4 py-3 text-sm text-white placeholder-white/30 focus:outline-none focus:border-sky-400 transition-colors"
+                  className="w-full bg-[#F7F3EC]/5 border border-[#C9A64A]/30 px-4 py-3 text-sm text-[#E8E3DB] placeholder-[#E8E3DB]/25 focus:outline-none focus:border-[#C9A64A] transition-colors"
                 />
                 <Button
                   type="submit"
-                  variant="sky"
+                  variant="gold"
                   size="sm"
                   loading={loading}
                   className="w-full justify-center"
@@ -175,13 +180,13 @@ export function Footer() {
           </div>
         </div>
 
-        <SkyDivider wide />
+        <GoldDivider wide />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-2">
-          <p className="text-white/40 text-xs tracking-wide">
-            © {new Date().getFullYear()} GrandVenice Hotel & Suites Ltd. All rights reserved.
+          <p className="text-[#E8E3DB]/30 text-xs tracking-wide">
+            © {new Date().getFullYear()} GrandVenice Hotel &amp; Suites Ltd. All rights reserved.
           </p>
-          <p className="text-white/30 text-xs">
+          <p className="text-[#E8E3DB]/20 text-xs">
             Plot 19, Igwe Family Layout Rumuogba, Port Harcourt, Nigeria
           </p>
         </div>

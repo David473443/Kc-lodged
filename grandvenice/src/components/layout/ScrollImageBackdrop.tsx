@@ -90,15 +90,15 @@ export function ScrollImageBackdrop() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Warm stone-gray tint to unify palette with page */}
-      <div className="absolute inset-0" style={{ background: "rgba(243,241,237,0.58)" }} />
+      {/* Dark obsidian tint — Grand Noir palette */}
+      <div className="absolute inset-0" style={{ background: "rgba(14,12,10,0.55)" }} />
 
-      {/* Soft vignette */}
+      {/* Soft dark vignette */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at center, transparent 30%, rgba(243,241,237,0.40) 100%)",
+            "radial-gradient(ellipse at center, transparent 30%, rgba(14,12,10,0.45) 100%)",
         }}
       />
     </div>

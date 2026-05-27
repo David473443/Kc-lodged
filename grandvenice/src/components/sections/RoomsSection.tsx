@@ -9,11 +9,11 @@ interface RoomsSectionProps {
 
 export async function RoomsSection({ rooms }: RoomsSectionProps) {
   return (
-    <section id="rooms" className="relative z-10 overflow-hidden section-padding bg-stone-100/88 backdrop-blur-sm">
+    <section id="rooms" className="relative z-10 overflow-hidden section-padding bg-[#141210]">
 
-      {/* ── Sky-blue accent hairline top ── */}
+      {/* ── Antique gold accent hairline top ── */}
       <div className="absolute top-0 left-0 right-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent, #B8DCF3 40%, #B8DCF3 60%, transparent)" }} />
+        style={{ background: "linear-gradient(90deg, transparent, #C9A64A 40%, #C9A64A 60%, transparent)" }} />
 
       <div className="max-w-7xl mx-auto px-6">
         <FadeInView direction="up">
@@ -21,16 +21,16 @@ export async function RoomsSection({ rooms }: RoomsSectionProps) {
             script="Accommodations"
             title="Rooms & Suites"
             subtitle="Each room tells a story of comfort and elegance"
-            variant="dark"
+            variant="light"
           />
         </FadeInView>
 
         <RoomsGrid rooms={rooms} />
       </div>
 
-      {/* ── Sky-blue accent hairline bottom ── */}
+      {/* ── Antique gold accent hairline bottom ── */}
       <div className="absolute bottom-0 left-0 right-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent, #B8DCF3 40%, #B8DCF3 60%, transparent)" }} />
+        style={{ background: "linear-gradient(90deg, transparent, #C9A64A 40%, #C9A64A 60%, transparent)" }} />
     </section>
   );
 }

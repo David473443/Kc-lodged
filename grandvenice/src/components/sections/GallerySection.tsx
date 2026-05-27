@@ -197,43 +197,43 @@ function DoorsRevealImage({
         unoptimized
       />
 
-      {/* Left door — sky-blue */}
+      {/* Left door — dark charcoal (Grand Noir) */}
       <motion.div
         className="absolute inset-0 right-1/2 z-10"
-        style={{ background: "linear-gradient(135deg, #DBEEF9 0%, #B8DCF3 100%)" }}
+        style={{ background: "linear-gradient(135deg, #1E1A17 0%, #141210 100%)" }}
         initial={{ x: 0 }}
         animate={inView ? { x: "-100%" } : { x: 0 }}
         transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
       />
 
-      {/* Right door — sky-blue */}
+      {/* Right door — dark charcoal (Grand Noir) */}
       <motion.div
         className="absolute inset-0 left-1/2 z-10"
-        style={{ background: "linear-gradient(315deg, #DBEEF9 0%, #B8DCF3 100%)" }}
+        style={{ background: "linear-gradient(315deg, #1E1A17 0%, #141210 100%)" }}
         initial={{ x: 0 }}
         animate={inView ? { x: "100%" } : { x: 0 }}
         transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
       />
 
-      {/* Sky seam line that fades away */}
+      {/* Gold seam line that fades away */}
       <motion.div
         className="absolute inset-y-0 left-1/2 -translate-x-px w-px z-20"
-        style={{ background: "linear-gradient(to bottom, transparent, #4A9FC8 30%, #4A9FC8 70%, transparent)" }}
+        style={{ background: "linear-gradient(to bottom, transparent, #C9A64A 30%, #C9A64A 70%, transparent)" }}
         initial={{ opacity: 1 }}
         animate={inView ? { opacity: 0 } : { opacity: 1 }}
         transition={{ duration: 0.4, delay: 0.6 }}
       />
 
       {/* Hover overlay */}
-      <div className="absolute inset-0 bg-navy/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-30">
-        <div className="bg-sky-500/90 p-3">
-          <Expand size={20} className="text-white" />
+      <div className="absolute inset-0 bg-[#0E0C0A]/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-30">
+        <div className="bg-[#C9A64A] p-3">
+          <Expand size={20} className="text-[#0E0C0A]" />
         </div>
       </div>
 
       {/* Alt text label */}
-      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-navy/65 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
-        <p className="text-white text-[10px] tracking-[0.15em] uppercase">{alt}</p>
+      <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-[#0E0C0A]/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30">
+        <p className="text-[#F7F3EC] text-[10px] tracking-[0.15em] uppercase">{alt}</p>
       </div>
     </div>
   );
@@ -260,15 +260,15 @@ export function GallerySection({ items }: GallerySectionProps) {
   }
 
   return (
-    <section id="gallery" className="relative z-10 bg-stone-100/88 backdrop-blur-sm section-padding">
+    <section id="gallery" className="relative z-10 bg-[#0E0C0A] section-padding">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeading
           script="Visual Journey"
           title="Photo Gallery"
-          variant="dark"
+          variant="light"
         />
 
-        {/* Category filter tabs — sky-blue active */}
+        {/* Category filter tabs — gold active */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -282,8 +282,8 @@ export function GallerySection({ items }: GallerySectionProps) {
               onClick={() => setActiveCategory(cat.key)}
               className={
                 activeCategory === cat.key
-                  ? "bg-navy text-white text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 font-semibold"
-                  : "border border-stone-300 text-slate hover:border-navy hover:text-navy text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 cursor-pointer"
+                  ? "bg-[#C9A64A] text-[#0E0C0A] text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 font-semibold"
+                  : "border border-[#C9A64A]/25 text-[#8C8480] hover:border-[#C9A64A]/50 hover:text-[#E8D4A2] text-[10px] tracking-[0.25em] uppercase px-5 py-2 transition-all duration-200 cursor-pointer"
               }
             >
               {cat.label}
@@ -313,7 +313,7 @@ export function GallerySection({ items }: GallerySectionProps) {
           className="flex justify-center mt-14"
         >
           <Button
-            variant="ghost-sky"
+            variant="gold-outline"
             href="https://www.grandvenicenigeria.com"
             external
           >
